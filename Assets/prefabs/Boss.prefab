@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.94, y: -0.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -108,13 +108,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   player: {fileID: 0}
-  exp: {fileID: 5380470213039716892, guid: 212d79bbcc88e554789c8cfc1cd72d3e, type: 3}
+  exp: {fileID: 5877076304045906643, guid: e2bd7465cc9919943aac4055f285fcaa, type: 3}
+  watermelon_bullet: {fileID: 7533887312970052570, guid: 98de3bc9006775f4d9fe9639a72ad56e, type: 3}
   boss_data: {fileID: 11400000, guid: e8520c443c71a4c4c98c11fb59352f07, type: 2}
   game_data: {fileID: 11400000, guid: ef14c9ab499d7804786a75298c9dda5d, type: 2}
   boss_id: 0
   boss_my_HP: 0
   boss_my_attack: 0
   boss_my_speed: 0
+  attack_cooltime: 0
 --- !u!114 &-5299646853544135479
 MonoBehaviour:
   m_ObjectHideFlags: 0

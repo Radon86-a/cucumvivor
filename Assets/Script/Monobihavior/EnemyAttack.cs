@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public long bullet_speed = 3;
+    public long bullet_speed = 2;
     public GameObject game_player;
     public Vector3 now_palyer_position;
     public Vector3 normalizedDirection;

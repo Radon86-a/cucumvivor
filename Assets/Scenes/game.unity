@@ -3441,6 +3441,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e8520c443c71a4c4c98c11fb59352f07, type: 2}
     - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
+      propertyPath: until_boss
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
       propertyPath: boss_prefab
       value: 
       objectReference: {fileID: 624036002525425520, guid: 14cec7435abd94c4ebf5e60af1dbcaa9, type: 3}
@@ -5914,11 +5918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3180490733913654388, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3180490733913654388, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3180490733913654388, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: m_LocalPosition.z

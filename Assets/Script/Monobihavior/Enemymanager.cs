@@ -9,8 +9,7 @@ public class Enemymanager : MonoBehaviour
     public GameObject game_player;
     public GameObject Enemy_bullet;
     public GameObject boss_prefab;
-    public bool is_boss;
-    public long until_boss = 90;
+    public long until_boss = 60;
     public long on_boss;
     public float cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,7 +18,8 @@ public class Enemymanager : MonoBehaviour
         game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
         game_data.game_time = 0f;
         game_data.phase_time = 0f;
-        is_boss = false;
+        game_data.gamephase = 0;
+        game_data.is_boss = false;
         switch(game_data.now_boss_id)
         {
         case 0:
@@ -48,7 +48,7 @@ public class Enemymanager : MonoBehaviour
         {
         case 0:
         //ダミーボスの場合の雑魚敵
-        if(cooltime < 0 && is_boss == false)
+        if(cooltime < 0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 3; i++)
             {
@@ -56,62 +56,62 @@ public class Enemymanager : MonoBehaviour
             }
             cooltime = 3.0f;
         }
-        if(game_data.phase_time > until_boss && is_boss == false)
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
-                is_boss = true;
+                game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
             }
         break;
         case 1:
-        if(cooltime <0 && is_boss == false)
+        if(cooltime <0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 2 ;i++)
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 2);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
             }
             cooltime = 3;
         }
-        if(game_data.phase_time > until_boss && is_boss == false)
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
-                is_boss = true;
+                game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
             }
         break;
         case 2:
-        if(cooltime <0 && is_boss == false)
+        if(cooltime <0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 2 ;i++)
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
             }
             cooltime = 3;
         }
-        if(game_data.phase_time > until_boss && is_boss == false)
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
-                is_boss = true;
+                game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
             }
         break;
         case 3:
-        if(cooltime <0 && is_boss == false)
+        if(cooltime <0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 2 ;i++)
             {
@@ -128,9 +128,9 @@ public class Enemymanager : MonoBehaviour
             }
             cooltime = 3;
         }
-        if(game_data.phase_time > until_boss && is_boss == false)
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
-                is_boss = true;
+                game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
             }
         break;
