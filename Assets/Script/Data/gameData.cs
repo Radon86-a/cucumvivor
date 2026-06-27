@@ -10,4 +10,5 @@ public class gameData : ScriptableObject
     public long kill_enemy;
     public bool is_boss;
     public long score;
+    public bool is_gaming;
 }
