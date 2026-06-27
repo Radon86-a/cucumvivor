@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 111176499591476686}
   - component: {fileID: 5057404437195271840}
   - component: {fileID: 148055688985755991}
+  - component: {fileID: 99320703863564200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.54632044, b: 1, a: 1}
+  m_Sprite: {fileID: 7812507408385897357, guid: dcbeb22574f31734496f2d3590a0fbd2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188,6 +189,9 @@ MonoBehaviour:
     weapon_prefab: {fileID: 0}
   player_level: 1
   player_exp: 0
+  hpBar: {fileID: 0}
+  UIManager: {fileID: 0}
+  weaponUI: {fileID: 0}
 --- !u!50 &5057404437195271840
 Rigidbody2D:
   serializedVersion: 5
@@ -250,4 +254,26 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 3
+--- !u!95 &99320703863564200
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227384796372686644}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd0a591b5f7f4fb439f4119cef9a37fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
