@@ -53,6 +53,7 @@ public class enemy : MonoBehaviour
                 attack_cooltime = 2;
             }
         }
+        my_HP --;
 
         if(my_HP <= 0)
         {
