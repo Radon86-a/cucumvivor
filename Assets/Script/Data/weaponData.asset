@@ -14,14 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::weaponData
   weapons:
   - use_as_item: 0
-    weapon_id: 0
-    weapon_name: "\u30C0\u30DF\u30FC"
-    weapon_attack: 1
-    weapon_attack_id: 1
-    weapon_detail: "\u30C0\u30DF\u30FC\u306E\u6B66\u5668"
-    weapon_skin: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
-    weapon_prefab: {fileID: 1877135009959041294, guid: 75e89ae98ac9ac74685efc4df997f7f0, type: 3}
-  - use_as_item: 0
     weapon_id: 1
     weapon_name: "\u5BD2\u5929\u304D\u3085\u3046\u308A"
     weapon_attack: 10
@@ -109,99 +101,91 @@ MonoBehaviour:
     weapon_detail: "\u7C21\u5358\u304D\u3085\u3046\u308A"
     weapon_skin: {fileID: 590258026711378333, guid: 2fe188c96c142ad4bbc056dc7dbfa89a, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 13
+    weapon_name: "\u304D\u3085\u3046\u308A\u306E\u51A0"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u6700\u5927HP\u3092100\u5897\u3084\u3059"
+    weapon_skin: {fileID: 7559900411863260524, guid: 38972a1686bd19746b83d559c427ba37, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 14
+    weapon_name: "\u5168\u4F11\u308A"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u6700\u5927HP\u30921.2\u500D\u3059\u308B"
+    weapon_skin: {fileID: 5469849329148940042, guid: caa14557e8cb3f04a8e880192e417b36, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 15
+    weapon_name: "\u675E\u6182\u308A"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u79FB\u52D5\u901F\u5EA6\u30922\u5897\u3084\u3059"
+    weapon_skin: {fileID: 6822035371240593115, guid: 02c80564ba195bf4c8c41b33874325f8, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 16
+    weapon_name: "\u7DE9\u6025\u308A"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u653B\u6483\u983B\u5EA6\u3092\u4E0A\u6607\u3055\u305B\u308B"
+    weapon_skin: {fileID: 7915276704467949962, guid: 42291b22c03b2ee4780e9773331aa3b6, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 17
+    weapon_name: "\u304D\u3085\u3046\u308A\u7F36"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u6700\u5927HP\u306E20%\u56DE\u5FA9\u3059\u308B\u3002"
+    weapon_skin: {fileID: 7915276704467949962, guid: 42291b22c03b2ee4780e9773331aa3b6, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 18
+    weapon_name: "\u6551\u6025\u6551\u547D\u304D\u3085\u3046\u308A"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u6700\u5927HP\u306E50%\u56DE\u5FA9\u3059\u308B\u3002"
+    weapon_skin: {fileID: -3043808715873237433, guid: 3c00fc2b88267b546ab8ee82627b25ee, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 19
+    weapon_name: "\u304D\u3085\u3046\u308A\u30BD\u30FC\u30C9"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u653B\u6483\u529B\u30921.5\u500D\u3059\u308B"
+    weapon_skin: {fileID: 672758512349033048, guid: 57ed237e08743124e89f4e62699bfd53, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 19
+    weapon_name: "\u7CBE\u970A\u99AC"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u79FB\u52D5\u901F\u5EA6\u30921.5\u500D\u3059\u308B"
+    weapon_skin: {fileID: 2743036643950878378, guid: cb116a7d50c14bc4ebbee7e36a04b8f2, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 20
+    weapon_name: "\u304D\u3085\u3046\u308A\u306E\u6F2C\u7269"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u653B\u6483\u529B\u309220\u5897\u3084\u3059"
+    weapon_skin: {fileID: -7872938329240015301, guid: 441d2c51a462b804fa1828fee5733eb2, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 21
+    weapon_name: "\u304D\u3085\u3046\u30EA\u30F3\u30B0"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u653B\u6483\u529B\u30922\u500D\u3059\u308B"
+    weapon_skin: {fileID: -1824408833917316660, guid: 75e6504543819654ea0b8b696f6d9983, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
+  - use_as_item: 1
+    weapon_id: 22
+    weapon_name: "\u67D1\u6A58\u304D\u3085\u3046\u308A"
     weapon_attack: 1
     weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
-    weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
-  - use_as_item: 0
-    weapon_id: 2
-    weapon_name: "\u305F\u307E"
-    weapon_attack: 1
-    weapon_attack_id: 2
-    weapon_detail: "\u6483\u3061\u307E\u3059"
-    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_detail: "\u6804\u990A\u6E80\u70B9\uFF01"
+    weapon_skin: {fileID: -8720874875870591096, guid: cd4bf5414ba74a64c80c6402e022ea9f, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}
