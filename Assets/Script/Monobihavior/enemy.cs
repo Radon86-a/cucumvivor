@@ -75,6 +75,7 @@ public class enemy : MonoBehaviour
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
+            exp_item.player = player;
             Instantiate(deathParticle,transform.position,Quaternion.identity);
             game_data.kill_enemy ++;
             AudioManager.Instance.PlaySoundOneShot(killed_SE);

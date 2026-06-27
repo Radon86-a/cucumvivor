@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class expItem : MonoBehaviour
 {
+    public GameObject player;
     public long exp_amount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,9 +13,18 @@ public class expItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(-2.0f * Time.deltaTime, 0, 0f); 
-        float x = transform.position.x;
-        if(x < -10)
+        
+        Vector3 direction = player.transform.position - transform.position;
+        if(direction.x * direction.x + direction.y * direction.y < 1.8)
+        {
+        direction.z = 0f;
+        Vector3 normalizedDirection = direction.normalized;
+        transform.position += normalizedDirection * 2.0f * Time.deltaTime;
+        }else
+        {
+            transform.Translate(-2.0f * Time.deltaTime, 0, 0f); 
+        }
+        if(transform.position.x < -10)
         {
             Destroy (this.gameObject);
         }
