@@ -81,6 +81,8 @@ public class Boss : MonoBehaviour
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
             game_data.gamephase ++;
+            game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
+            game_data.phase_time = 0f;
             Destroy (this.gameObject);
         }
     }

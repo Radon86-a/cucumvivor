@@ -10,7 +10,7 @@ public class Enemymanager : MonoBehaviour
     public GameObject Enemy_bullet;
     public GameObject boss_prefab;
     public bool is_boss;
-    public long until_boss = 90;
+    public long until_boss = 60;
     public long on_boss;
     public float cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,11 +69,11 @@ public class Enemymanager : MonoBehaviour
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 2);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
@@ -93,11 +93,11 @@ public class Enemymanager : MonoBehaviour
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);

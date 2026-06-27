@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemy
   player: {fileID: 1294344686212045684, guid: 0f2f6c72f00445946a2340a5268d55a8, type: 3}
   exp: {fileID: 5877076304045906643, guid: e2bd7465cc9919943aac4055f285fcaa, type: 3}
-  enemy_bullet: {fileID: 0}
+  enemy_bullet: {fileID: 5380470213039716892, guid: 212d79bbcc88e554789c8cfc1cd72d3e, type: 3}
   deathParticle: {fileID: 8719186047782061293, guid: 84f67332387eccd4d9cb5dc1ae795ba3, type: 3}
   enemy_data: {fileID: 11400000, guid: 1c204553a5eac7c46bff83159a93b5d5, type: 2}
   game_data: {fileID: 11400000, guid: ef14c9ab499d7804786a75298c9dda5d, type: 2}
@@ -171,7 +171,4 @@ MonoBehaviour:
   damageAmount: 0
   cooltime: 0
   disappearOnAttack: 0
-  moveType: 0
-  targetTransform: {fileID: 0}
-  parentTransform: {fileID: 0}
-  moveVector: {x: 0, y: 0}
+  dp: {fileID: 0}
