@@ -224,6 +224,27 @@ public class Player : MonoBehaviour
                     break;
                 case 3:
                     //近距離の敵に自動で照準
+                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
+                    {
+                        return;
+                    }
+                    weapon_lastAttackTimes[i] = nowtime;
+                    var newbullet2 = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                    newbullet2.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
+
+                    //右方向に加速度を与える
+                    Collider2D[] hitColliders2 = Physics2D.OverlapCircleAll(parent.position, 2f);
+                    newbullet2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                    foreach (var hitCollider in hitColliders2)
+                    {
+
+                        if (hitCollider.CompareTag("Enemy"))
+                        {
+                            Vector3 direction = (hitCollider.transform.position - parent.position).normalized;
+                            newbullet2.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f;
+                            break;
+                        }
+                    }
                     break;
                 case 4:
                     //持続攻撃
