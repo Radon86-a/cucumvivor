@@ -10,5 +10,6 @@ public class Result : MonoBehaviour
     public void ShowResult()
     {
         result.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
