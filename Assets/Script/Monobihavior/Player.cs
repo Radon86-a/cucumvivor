@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
 	[Header("=== ステータス ===")]
@@ -77,6 +77,16 @@ public class Player : MonoBehaviour
                     //追従型
 					if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
 					{
+						if(weapon_objects[i].obj != null)
+						{
+							for(long j = 0; j < weapon_objects[i].obj.Length; j++)
+							{
+								if(weapon_objects[i].obj[j] != null)
+								{
+									Destroy(weapon_objects[i].obj[j]);
+								}
+							}
+						}
 						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
 						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
 					}
@@ -84,13 +94,14 @@ public class Player : MonoBehaviour
                     {
                         if (weapon_objects[i].obj[j] == null)
                         {
-                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);                        
+                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+							weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         }
                         weapon_objects[i].obj[j].SetActive(true);
                         Transform parent = this.transform;
 						float radius = 1.0f; // 回転半径
 						float speed = 2.0f; // 回転速度
-						float angle = nowtime * speed; // 現在の角度
+						float angle = nowtime * speed + j*(2*(3.141592653589f))/(weapon_levels[i]); // 現在の角度
 						Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
 						weapon_objects[i].obj[j].transform.position = parent.position + offset;
                     }
@@ -113,7 +124,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-	
+
 
 	//EXPを拾う
 	void OnTriggerEnter2D(Collider2D other)
