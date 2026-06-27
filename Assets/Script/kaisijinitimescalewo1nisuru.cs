@@ -1,0 +1,1 @@
+using UnityEngine;public class kaisijinitimescalewo1nisuru : MonoBehaviour{void Awake(){Time.timeScale = 1f;}}
