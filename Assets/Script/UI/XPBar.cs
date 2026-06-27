@@ -11,7 +11,7 @@ public class XPBar : MonoBehaviour
     void Start()
     {
         slider = xpBar.GetComponent<Slider>();
-        slider.value = 1;
+        slider.value = 0;
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class XPBar : MonoBehaviour
         slider.maxValue = maxXP;
         slider.value = currentXP;
     }
-    public void SetHP(long currentXP, long maxXP)
+    public void SetXP(long currentXP, long maxXP)
     {
         if (currentXP > maxXP)
         {

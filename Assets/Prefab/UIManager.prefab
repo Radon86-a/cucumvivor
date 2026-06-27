@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6009554333130051100}
   - component: {fileID: 888886313489127730}
   - component: {fileID: 7202311780215136939}
+  - component: {fileID: 2400520258302596770}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -84,6 +85,8 @@ MonoBehaviour:
   selections1: {fileID: 0}
   selections2: {fileID: 0}
   selections3: {fileID: 0}
+  player: {fileID: 0}
+  weaponUI: {fileID: 0}
 --- !u!114 &888886313489127730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8d2e48696b7c14ebb3e09cd97857bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  player: {fileID: 0}
   holdWeapons:
   - weapon_id: 0
     weapon_name: 
@@ -157,3 +161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0836f72eaaadc8241aed02d8aa9f62ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::kaisijinitimescalewo1nisuru
+--- !u!114 &2400520258302596770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38fd340cc7916344fbe20031ad0706b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XPBar
+  xpBar: {fileID: 0}

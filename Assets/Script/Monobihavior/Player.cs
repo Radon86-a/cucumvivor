@@ -244,6 +244,9 @@ public class Player : MonoBehaviour
 				//ここでUIを呼ぶ
                 UIManager.GetComponent<SelectUpgrade>().ShowSelectUI(weapon_data.weapons);
 			}
+            //経験値バーに反映
+            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 10);
+            
 			Destroy(other.gameObject);
 		}
 	}
