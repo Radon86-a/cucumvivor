@@ -5,6 +5,7 @@ public class enemy : MonoBehaviour
     public GameObject player;
     public GameObject exp;
     public GameObject enemy_bullet;
+    public GameObject deathParticle;
     public enemyData enemy_data;
     public gameData game_data;
     public long my_id;
@@ -29,21 +30,21 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(my_attack_id == 0)
+        if (my_attack_id == 0)
         {
-            Vector3 direction = player.transform.position - transform.position + new Vector3 (1.0f, 0, 0);
+            Vector3 direction = player.transform.position - transform.position + new Vector3(1.0f, 0, 0);
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
         }
-        if(my_attack_id == 1)
+        if (my_attack_id == 1)
         {
-            Vector3 direction = player.transform.position - transform.position + new Vector3 (4, 0, 0);
+            Vector3 direction = player.transform.position - transform.position + new Vector3(4, 0, 0);
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
             attack_cooltime -= Time.deltaTime;
-            if(attack_cooltime < 0)
+            if (attack_cooltime < 0)
             {
                 GameObject clonedObject = Instantiate(enemy_bullet, transform.position, Quaternion.identity);
                 EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
@@ -54,13 +55,14 @@ public class enemy : MonoBehaviour
             }
         }
 
-        if(my_HP <= 0)
+        if (my_HP <= 0)
         {
             // 死亡時の処理
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
-            Destroy (this.gameObject);
+            Instantiate(deathParticle,transform.position,Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }
