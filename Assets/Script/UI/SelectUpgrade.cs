@@ -60,6 +60,24 @@ public class SelectUpgrade : MonoBehaviour
         selectUI.SetActive(false);
         Time.timeScale = 1f;
     }
+    /*
+    id+12
+| id  | 名前             | 対象 | 上昇幅 | 説明                | 実装 |
+| --- | ---------------- | ---- | ------ | ------------------- | ---- |
+| 0   | ダミーアイテム   | 1    | -100   | ダミーのアイテム    | 済   |
+| 1   | きゅうりの冠     | 0    | +100   | 最大HPを100増やす   | 未   |
+| 2   | 全休り           | 0    | ×1.5   | 最大HPを1.2倍する   | 未   |
+| 3   | 杞憂り           | 3    | +2     | 移動速度を2増やす   | 未   |
+| 4   | 緩急り           | 4    | +1     | 攻撃頻度を1増やす   | 未   |
+| 5   | きゅうり缶       | 1    | +20%   | 最大HPの20%回復する | 未   |
+| 6   | 救急救命きゅうり | 1    | +50%   | 最大HPの50%回復する | 未   |
+| 7   | きゅうりソード   | 2    | ×1.5   | 攻撃力を1.5倍する   | 未   |
+| 8   | 精霊馬           | 3    | ×1.5   | 移動速度を1.5倍する | 未   |
+| 9   | きゅうりの漬物   | 2    | +20    | 攻撃力を20増やす    | 未   |
+| 10  | きゅうリング     | 2    | ×2.0   | 攻撃力を二倍する    | 未   |
+| 11  | 柑橘きゅうり     | 0,2  | ×1.2   | 栄養満点！          | 未   |
+|     |                  |      |        |                     |      |
+    */
     public void SendSelectedWeaponData(Weapons selectedWeapon)
     {
         if (selectedWeapon.use_as_item)
@@ -75,6 +93,46 @@ public class SelectUpgrade : MonoBehaviour
                     //ぜんきゅうり
                     player.max_HP = (long)(player.max_HP* 1.2f);
                 break;
+                case 15:
+                    //杞憂り
+                    player.speed += 2;
+                break;
+                case 16:
+                    //緩急り
+                    player.attack_freq *= 0.8f;
+                break;
+                case 17:
+                    //きゅうり缶
+                    player.HP += (long)(player.max_HP * 0.2f);
+                break;
+                case 18:
+                    //救急救命きゅうり
+                    player.HP += (long)(player.max_HP * 0.8f);
+                break;
+                case 19:
+                    //きゅうりソード
+                    player.attack = (long)(player.attack * 1.5f);
+                break;
+                case 20:
+                    //精霊馬
+                    player.speed *= 1.5f;
+                break;
+                case 21:
+                    //きゅうりの漬物
+                    player.attack += 20;
+                break;
+                case 22:
+                    //きゅうリング
+                    player.attack *= 2;
+                break;
+                case 23:
+                    //柑橘きゅうり
+                    player.max_HP = (long)(player.max_HP * 1.2f);
+                    player.attack = (long)(player.attack * 1.2f);
+                break;
+
+
+                
                 
                 default:
                     print("未実装のアイテムです。");

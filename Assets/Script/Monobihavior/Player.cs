@@ -5,7 +5,8 @@ public class Player : MonoBehaviour
 {
 	[Header("=== ステータス ===")]
     public pleyerData playerData;
-    public long HP, attack, speed, attack_cooltime,max_HP;
+    public long HP, attack,max_HP;
+    public float attack_freq,speed;
 
     private Rigidbody2D rb;
 
@@ -46,7 +47,7 @@ public class Player : MonoBehaviour
         max_HP = HP = playerData.pleyer_max_HP;
         attack = playerData.pleyer_attack;
         speed = playerData.pleyer_speed;
-        attack_cooltime = playerData.pleyer_attack_cooltime;
+        attack_freq = playerData.pleyer_attack_freq;
         rb = GetComponent<Rigidbody2D>();
         weapons[0] = weapon_data.weapons[0]; // 初期装備の設定
         weaponUI.SetAll();
