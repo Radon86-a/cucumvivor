@@ -44,6 +44,7 @@ public class Enemymanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        game_data.score = (game_data.gamephase - 1)*100 + game_data.kill_enemy * 10;
         game_data.game_time += Time.deltaTime;
         game_data.phase_time += Time.deltaTime;
         cooltime -= Time.deltaTime;
