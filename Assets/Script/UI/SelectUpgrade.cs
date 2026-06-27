@@ -138,6 +138,7 @@ public class SelectUpgrade : MonoBehaviour
                     print("未実装のアイテムです。");
                     break;
             }
+            return;
         }
         //選択された武器のデータをplayerの伝える関数
         //仮設置

@@ -5877,12 +5877,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
-      propertyPath: 'weapon_levels.Array.data[1]'
+      propertyPath: 'weapon_levels.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
+      propertyPath: 'weapon_levels.Array.data[1]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: 'weapon_levels.Array.data[2]'
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: weapons.Array.data[0].weapon_id

@@ -15,4 +15,4 @@ MonoBehaviour:
   pleyer_max_HP: 30
   pleyer_attack: 10
   pleyer_speed: 5
-  pleyer_attack_cooltime: 1
+  pleyer_attack_freq: 1

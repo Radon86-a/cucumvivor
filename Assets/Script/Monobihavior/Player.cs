@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-		nowtime += Time.deltaTime;
+		nowtime += Time.deltaTime * attack_freq;
         Move();
         playerAttack();
     }
