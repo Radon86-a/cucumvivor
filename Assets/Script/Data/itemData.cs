@@ -13,5 +13,6 @@ public struct Items
     public string item_name;
     public long status_id;
     public long increment;
+    public string item_detail;
     public Sprite item_skin;
 }
