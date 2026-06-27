@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8ded5695b2bed41b4a2e31f17a37f4, type: 3}
-  m_Name: pleyerData
-  m_EditorClassIdentifier: Assembly-CSharp::pleyerData
-  pleyer_max_HP: 30
-  pleyer_attack: 10
-  pleyer_speed: 5
-  pleyer_attack_cooltime: 1
+  m_Script: {fileID: 11500000, guid: fbd4dac74cde1ff41b3b309835a57e29, type: 3}
+  m_Name: weaponData
+  m_EditorClassIdentifier: Assembly-CSharp::weaponData
+  weapons:
+  - weapon_id: 0
+    weapon_name: "\u30C0\u30DF\u30FC"
+    weapon_attack: 1
+    weapon_attack_id: 1
