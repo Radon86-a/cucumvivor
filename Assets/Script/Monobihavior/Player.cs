@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+	
 
 	//EXPを拾う
 	void OnTriggerEnter2D(Collider2D other)
