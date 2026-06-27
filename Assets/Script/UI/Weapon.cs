@@ -4,6 +4,7 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
+    const int maxWeapon = 5;
     public Player player;
     public Weapons[] holdWeapons = new Weapons[5];
     public Image[] slotObj = new Image[5];
@@ -17,22 +18,30 @@ public class Weapon : MonoBehaviour
     }
     public void SetImage()
     {
-        for(int i = 0; i < player.weapon_counts; i++)
+        for(int i = 0;i < maxWeapon;i++)
         {
-            
+            if(i < player.weapon_count)
+            {
+                slotObj[i].sprite = player.weapons[i].weapon_skin;
+            }
+            else
+            {
+                slotObj[i].sprite = null;
+            }
         }
     }
     public void SetLevel()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < maxWeapon; i++)
         {
-            if (levels[i] <= 0)
+            long lv = player.weapon_levels[i];
+            if (lv <= 0)
             {
                 levelObj[i].text = "";
             }
             else
             {
-                levelObj[i].text = "LV." + levels[i].ToString();
+                levelObj[i].text = "LV." + lv.ToString();
             }
         }
     }

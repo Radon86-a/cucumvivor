@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public HPBar hpBar;
     public GameObject UIManager;
+    public Weapon weaponUI;
 
 
 
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         speed = playerData.pleyer_speed;
         attack_cooltime = playerData.pleyer_attack_cooltime;
         rb = GetComponent<Rigidbody2D>();
+        weaponUI.SetAll();
     }
 
     void FixedUpdate()
