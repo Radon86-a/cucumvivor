@@ -14,6 +14,8 @@ public class SelectUpgrade : MonoBehaviour
     private int selectedID = 0;
     [SerializeField]
     Player player;
+    [SerializeField]
+    Weapon weaponUI;
     void Start()
     {
         selectUI.SetActive(false);
@@ -88,5 +90,7 @@ public class SelectUpgrade : MonoBehaviour
         {
             print("武器を追加できません。現在の武器数"+player.weapon_count);
         }
+        weaponUI.SetAll();
     }
+
 }

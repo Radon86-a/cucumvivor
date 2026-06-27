@@ -4357,6 +4357,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 627380797}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
+      propertyPath: weaponUI
+      value: 
+      objectReference: {fileID: 627380795}
+    - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: UIManager
       value: 
       objectReference: {fileID: 627380794}
@@ -5620,6 +5624,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 888886313489127730, guid: 47fce0c41ecaec54bbcf51405b16d255, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 845757547}
+    - target: {fileID: 888886313489127730, guid: 47fce0c41ecaec54bbcf51405b16d255, type: 3}
       propertyPath: 'slotObj.Array.data[0]'
       value: 
       objectReference: {fileID: 2131759171}
@@ -5715,6 +5723,10 @@ PrefabInstance:
       propertyPath: selectUI
       value: 
       objectReference: {fileID: 1052253844}
+    - target: {fileID: 6009554333130051100, guid: 47fce0c41ecaec54bbcf51405b16d255, type: 3}
+      propertyPath: weaponUI
+      value: 
+      objectReference: {fileID: 627380795}
     - target: {fileID: 6009554333130051100, guid: 47fce0c41ecaec54bbcf51405b16d255, type: 3}
       propertyPath: selections1
       value: 
