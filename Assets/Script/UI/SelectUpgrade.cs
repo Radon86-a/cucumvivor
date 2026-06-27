@@ -75,6 +75,7 @@ public class SelectUpgrade : MonoBehaviour
                 //すでに持っている場合はレベルを上げる
                 player.weapon_levels[i]++;
                 print("武器のレベルを上げました。現在のレベル"+player.weapon_levels[i]);
+                weaponUI.SetAll();
                 return;
             }
         }

@@ -64,7 +64,7 @@ public class Attack : MonoBehaviour
                 if(enemy != null)
                 {
                     enemy.my_HP -= damageAmount;
-                    dp.showDamage(damageAmount, enemy.transform.position);
+                    if(dp!=null)dp.showDamage(damageAmount, enemy.transform.position);
                     if(disappearOnAttack)
                     {
                         Destroy(gameObject);
