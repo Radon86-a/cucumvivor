@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3296002564321713727}
   - component: {fileID: 5359251886088921972}
   - component: {fileID: 7481794132510284604}
+  - component: {fileID: -2812283873679319222}
   m_Layer: 0
   m_Name: 01(dummy)
   m_TagString: Untagged
@@ -112,10 +113,7 @@ MonoBehaviour:
   damageAmount: 10
   cooltime: 0
   disappearOnAttack: 1
-  moveType: 0
-  targetTransform: {fileID: 0}
-  parentTransform: {fileID: 0}
-  moveVector: {x: 0, y: 0}
+  dp: {fileID: 0}
 --- !u!58 &5359251886088921972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +177,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2812283873679319222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877135009959041294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f072383383d03e43ade57c9d45903ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamagePopup
 --- !u!1 &2754476736032149376
 GameObject:
   m_ObjectHideFlags: 0
