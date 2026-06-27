@@ -6,6 +6,7 @@ public class Enemymanager : MonoBehaviour
     public enemyData enemy_data;
     public GameObject enemy_prefab;
     public GameObject game_player;
+    public GameObject Enemy_bullet;
     public bool is_boss;
     public float cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +24,10 @@ public class Enemymanager : MonoBehaviour
         }
         break;
         case 1:
+        if(cooltime <0)
+        {
+            cooltime = 2.0f;
+        }
         break;
         default: break;
         }
@@ -46,11 +51,24 @@ public class Enemymanager : MonoBehaviour
             enemy enemy_ = clonedObject.GetComponent<enemy>();
             enemy_.my_id = 0;
             enemy_.player = game_player;
+            enemy_.enemy_bullet = Enemy_bullet;
             }
             cooltime = 2;
         }
         break;
         case 1:
+        if(cooltime <0)
+        {
+            for(long i = 0; i < 3; i++)
+            {
+            GameObject clonedObject = Instantiate(enemy_prefab, new Vector3(10, 5 - 5 * i, 0), Quaternion.identity);
+            enemy enemy_ = clonedObject.GetComponent<enemy>();
+            enemy_.my_id = 1;
+            enemy_.player = game_player;
+            enemy_.enemy_bullet = Enemy_bullet;
+            }
+            cooltime = 2;
+        }
         break;
         default: break;
         }
