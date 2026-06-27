@@ -7,6 +7,8 @@ public class Boss : MonoBehaviour
     public GameObject watermelon_bullet;
     public bossData boss_data;
     public gameData game_data;
+    //カメラの取得
+    public CameraAction cameraAction;
     public long boss_id;
     public long boss_my_HP;
     public long boss_my_attack;
@@ -23,6 +25,7 @@ public class Boss : MonoBehaviour
         myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sprite = boss_data.bosses[boss_id].boss_skin;
         GetComponent<Attack>().damageAmount = boss_my_attack;
+        GetComponent<Attack>().cameraAction = cameraAction;
         switch(game_data.now_boss_id)
         {
         case 0:
@@ -61,6 +64,7 @@ public class Boss : MonoBehaviour
                 BossAttack boss_attack = clonedObject.GetComponent<BossAttack>();
                 Attack attack = clonedObject.GetComponent<Attack>();
                 attack.damageAmount = boss_my_attack;
+                attack.cameraAction = cameraAction;
                 boss_attack.game_player = player;
                 attack_cooltime = 0.5f;
             }

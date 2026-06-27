@@ -1457,7 +1457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &312298307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3465,6 +3465,10 @@ PrefabInstance:
       propertyPath: Enemy_bullet
       value: 
       objectReference: {fileID: 5380470213039716892, guid: 212d79bbcc88e554789c8cfc1cd72d3e, type: 3}
+    - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
+      propertyPath: cameraAction
+      value: 
+      objectReference: {fileID: 735631028}
     - target: {fileID: 8932687765631845619, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5219,6 +5223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   isEnemyAttack: 1
+  cameraAction: {fileID: 0}
   damageAmount: 10
   cooltime: 0
   disappearOnAttack: 0
