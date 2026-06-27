@@ -220,16 +220,16 @@ public class Player : MonoBehaviour
 		if(other.gameObject.CompareTag("EXP"))
 		{
 			player_exp += other.gameObject.GetComponent<expItem>().exp_amount;
-			if(player_exp >= player_level * 10)
+			if(player_exp >= player_level * 5)
 			{
-				player_exp -= player_level * 10;
+				player_exp -= player_level * 5;
 				player_level++;
 				//レベルアップ時の処理
 				//ここでUIを呼ぶ
                 UIManager.GetComponent<SelectUpgrade>().ShowSelectUI(weapon_data.weapons);
 			}
             //経験値バーに反映
-            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 10);
+            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 5);
             
 			Destroy(other.gameObject);
 		}
