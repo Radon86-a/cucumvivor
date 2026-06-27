@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     public long boss_my_attack;
     public long boss_my_speed;
     public float attack_cooltime;
+    public bool boss_one;
     private SpriteRenderer myRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,6 +69,21 @@ public class Boss : MonoBehaviour
                 boss_attack.game_player = player;
                 attack_cooltime = 0.5f;
             }
+        if(boss_one)
+        {
+            transform.position += new Vector3 (0, 1, 0) * boss_my_speed * Time.deltaTime;
+            if(transform.position.y > 5)
+            {
+                boss_one = !boss_one;
+            }
+        }else
+        {
+            transform.position += new Vector3 (0, 1, 0) * boss_my_speed * Time.deltaTime * (-1);
+            if(transform.position.y < -5)
+            {
+                boss_one = !boss_one;
+            }
+        }
         
         break;
         case 2:
