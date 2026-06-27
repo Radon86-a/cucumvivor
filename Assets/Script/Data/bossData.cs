@@ -15,4 +15,5 @@ public struct Bosses
     public long boss_attack;
     public long boss_speed;
     public long boss_attack_id;
+    public Sprite boss_skin;
 }

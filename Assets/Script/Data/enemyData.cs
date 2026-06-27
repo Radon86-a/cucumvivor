@@ -16,4 +16,5 @@ public struct Enemies
         public long enemy_attack;
         public long enemy_speed;
         public long enemy_attack_id;
+        public Sprite enemy_skin;
     }

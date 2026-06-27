@@ -18,4 +18,5 @@ MonoBehaviour:
     emeny_name: "\u30C0\u30DF\u30FC"
     enemy_attack: 10
     enemy_speed: 10
-    enemy_attack_id: 1
+    enemy_attack_id: 0
+    enemy_skin: {fileID: 0}

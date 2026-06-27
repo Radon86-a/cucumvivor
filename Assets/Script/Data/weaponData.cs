@@ -13,4 +13,6 @@ public struct Weapons
     public string weapon_name;
     public long weapon_attack;
     public long weapon_attack_id;
+    public Sprite weapon_skin;
+    public GameObject weapon_prefab;
 }

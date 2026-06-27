@@ -16,4 +16,6 @@ MonoBehaviour:
   - weapon_id: 0
     weapon_name: "\u30C0\u30DF\u30FC"
     weapon_attack: 1
-    weapon_attack_id: 1
+    weapon_attack_id: 0
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 1877135009959041294, guid: 75e89ae98ac9ac74685efc4df997f7f0, type: 3}
