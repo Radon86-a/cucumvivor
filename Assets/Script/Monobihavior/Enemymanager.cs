@@ -16,7 +16,7 @@ public class Enemymanager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        game_data.now_boss_id = Random.Range(0, boss_data.bosses.Length - 1);
+        game_data.now_boss_id = UnityEngine.Random.Range(0, boss_data.bosses.Length);
         game_data.game_time = 0f;
         game_data.phase_time = 0f;
         is_boss = false;
@@ -48,15 +48,11 @@ public class Enemymanager : MonoBehaviour
         {
         case 0:
         //ダミーボスの場合の雑魚敵
-        if(cooltime <0 && is_boss == false)
+        if(cooltime < 0 && is_boss == false)
         {
             for(long i = 0; i < 3; i++)
             {
-            GameObject clonedObject = Instantiate(enemy_prefab, new Vector3(10, 5 - 5 * i, 0), Quaternion.identity);
-            enemy enemy_ = clonedObject.GetComponent<enemy>();
-            enemy_.my_id = 0;
-            enemy_.player = game_player;
-            enemy_.enemy_bullet = Enemy_bullet;
+            MakeEnemy(new Vector3(10, 5 - 5 * i, 0), 0);
             }
             cooltime = 2;
         }
@@ -72,18 +68,29 @@ public class Enemymanager : MonoBehaviour
         case 1:
         if(cooltime <0 && is_boss == false)
         {
-            for(long i = 0; i < 3; i++)
+            for(long i = 0; i < 2 ;i++)
             {
-            GameObject clonedObject = Instantiate(enemy_prefab, new Vector3(10, 5 - 5 * i, 0), Quaternion.identity);
-            enemy enemy_ = clonedObject.GetComponent<enemy>();
-            enemy_.my_id = 1;
-            enemy_.player = game_player;
-            enemy_.enemy_bullet = Enemy_bullet;
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
+            }
+            MakeEnemy(new Vector3(10, 0, 0), 4);
+            for(long i = 0; i < 2; i++)
+            {
+            MakeEnemy(new Vector3(-10, 5 - 10 * i, 0), 1);
             }
             cooltime = 2;
         }
         break;
         default: break;
         }
+    }
+
+    //敵生成用のメソッド
+    void MakeEnemy(Vector3 iti,long id)
+    {
+        GameObject clonedObject = Instantiate(enemy_prefab, iti, Quaternion.identity);
+        enemy enemy_ = clonedObject.GetComponent<enemy>();
+        enemy_.my_id = id;
+        enemy_.player = game_player;
+        enemy_.enemy_bullet = Enemy_bullet;
     }
 }
