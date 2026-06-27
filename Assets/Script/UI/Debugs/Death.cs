@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    public HPBar hPBar;
+    public Player player;
     public void doDeath()
     {
-        hPBar.SetHP(0,10);
+        player.HP = 0;
     }
 }
