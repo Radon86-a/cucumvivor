@@ -4,6 +4,7 @@ public class Enemymanager : MonoBehaviour
 {
     public gameData game_data;
     public enemyData enemy_data;
+    public bossData boss_data;
     public GameObject enemy_prefab;
     public GameObject game_player;
     public GameObject Enemy_bullet;
@@ -15,7 +16,7 @@ public class Enemymanager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        game_data.now_boss_id = Random.Range(0, enemy_data.enemies.Length - 1);
+        game_data.now_boss_id = Random.Range(0, boss_data.bosses.Length - 1);
         game_data.game_time = 0f;
         game_data.phase_time = 0f;
         is_boss = false;
