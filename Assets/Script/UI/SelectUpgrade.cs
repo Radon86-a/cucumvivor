@@ -16,6 +16,8 @@ public class SelectUpgrade : MonoBehaviour
     Player player;
     [SerializeField]
     Weapon weaponUI;
+    public AudioClip hyoji_SE;
+    public AudioClip decide_SE;
     void Start()
     {
         selectUI.SetActive(false);
@@ -37,6 +39,7 @@ public class SelectUpgrade : MonoBehaviour
     {
         selectionRandom();
         // SetSelections(selections);
+        AudioManager.Instance.PlaySoundOneShot(hyoji_SE);
         selectUI.SetActive(true);
         SetAllSelection();
         Time.timeScale = 0f;
@@ -56,6 +59,7 @@ public class SelectUpgrade : MonoBehaviour
     
     public void Selected(int selectedID)
     {
+        AudioManager.Instance.PlaySoundOneShot(decide_SE);
         SendSelectedWeaponData(selections[selectedID]);
         selectUI.SetActive(false);
         Time.timeScale = 1f;

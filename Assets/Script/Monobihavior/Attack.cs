@@ -15,6 +15,7 @@ public class Attack : MonoBehaviour
     //攻撃時に消える/持続ダメージ
     public bool disappearOnAttack = true;
     public AudioClip damaged_SE;
+    public AudioClip attack_SE;
     
     float nowtime = 0.0f;
     public DamagePopup dp;
@@ -73,6 +74,7 @@ public class Attack : MonoBehaviour
                 enemy enemy = collision.GetComponent<enemy>();
                 if(enemy != null)
                 {
+                    AudioManager.Instance.PlaySoundOneShot(attack_SE);
                     enemy.my_HP -= damageAmount;
                     if(dp!=null)dp.showDamage(damageAmount, enemy.transform.position);
                     if(disappearOnAttack)
@@ -91,6 +93,7 @@ public class Attack : MonoBehaviour
                 Boss boss = collision.GetComponent<Boss>();
                 if(boss != null)
                 {
+                    AudioManager.Instance.PlaySoundOneShot(attack_SE);
                     boss.boss_my_HP -= damageAmount;
                     if(dp!=null)dp.showDamage(damageAmount, boss.transform.position);
                     if(disappearOnAttack)
