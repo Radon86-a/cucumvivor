@@ -7,4 +7,5 @@ public class gameData : ScriptableObject
     public long now_boss_id;
     public float game_time;
     public float phase_time;
+    public long kill_enemy;
 }
