@@ -4,6 +4,7 @@ public class enemy : MonoBehaviour
 {
     public GameObject player;
     public GameObject exp;
+    public GameObject enemy_bullet;
     public enemyData enemy_data;
     public gameData game_data;
     public long my_id;
@@ -41,10 +42,14 @@ public class enemy : MonoBehaviour
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
-            attack_cooltime += Time.deltaTime;
+            attack_cooltime -= Time.deltaTime;
             if(attack_cooltime < 0)
             {
-                //敵の遠距離攻撃
+                GameObject clonedObject = Instantiate(enemy_bullet, transform.position, Quaternion.identity);
+                EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
+                enemy_attack.damege = my_attack;
+                enemy_attack.game_player = player;
+                attack_cooltime = 2;
             }
         }
 

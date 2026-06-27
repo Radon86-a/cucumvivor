@@ -6,6 +6,7 @@ public class Enemymanager : MonoBehaviour
     public enemyData enemy_data;
     public GameObject enemy_prefab;
     public GameObject game_player;
+    public GameObject Enemy_bullet;
     public bool is_boss;
     public float cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,6 +47,7 @@ public class Enemymanager : MonoBehaviour
             enemy enemy_ = clonedObject.GetComponent<enemy>();
             enemy_.my_id = 0;
             enemy_.player = game_player;
+            enemy_.enemy_bullet = Enemy_bullet;
             }
             cooltime = 2;
         }
