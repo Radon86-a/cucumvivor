@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        boss_id = game_data.now_boss_id;
         boss_my_HP = boss_data.bosses[boss_id].boss_HP * (game_data.gamephase + 1) * (game_data.gamephase + 1);
         boss_my_attack = boss_data.bosses[boss_id].boss_attack * (game_data.gamephase + 1) * (game_data.gamephase + 1);
         boss_my_speed = boss_data.bosses[boss_id].boss_speed;
@@ -57,10 +58,10 @@ public class Boss : MonoBehaviour
         if (attack_cooltime < 0)
             {
                 GameObject clonedObject = Instantiate(watermelon_bullet, transform.position, Quaternion.identity);
-                EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
+                BossAttack boss_attack = clonedObject.GetComponent<BossAttack>();
                 Attack attack = clonedObject.GetComponent<Attack>();
                 attack.damageAmount = boss_my_attack;
-                enemy_attack.game_player = player;
+                boss_attack.game_player = player;
                 attack_cooltime = 0.5f;
             }
         
@@ -79,7 +80,7 @@ public class Boss : MonoBehaviour
             // 死亡時の処理
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
-            exp_item.exp_amount = 1;
+            exp_item.exp_amount = 10 * game_data.gamephase;
             game_data.gamephase ++;
             game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
             game_data.phase_time = 0f;

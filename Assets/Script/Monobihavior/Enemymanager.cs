@@ -67,7 +67,7 @@ public class Enemymanager : MonoBehaviour
         {
             for(long i = 0; i < 2 ;i++)
             {
-            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 2);
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
             if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
@@ -91,7 +91,7 @@ public class Enemymanager : MonoBehaviour
         {
             for(long i = 0; i < 2 ;i++)
             {
-            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 2);
             }
             if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
