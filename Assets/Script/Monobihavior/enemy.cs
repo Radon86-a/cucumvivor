@@ -5,6 +5,7 @@ public class enemy : MonoBehaviour
     public GameObject player;
     public GameObject exp;
     public GameObject enemy_bullet;
+    public GameObject deathParticle;
     public enemyData enemy_data;
     public gameData game_data;
     public long my_id;
@@ -24,42 +25,48 @@ public class enemy : MonoBehaviour
         my_speed = enemy_data.enemies[my_id].enemy_speed;
         myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sprite = enemy_data.enemies[my_id].enemy_skin;
+        //接触ダメージの設定
+        GetComponent<Attack>().damageAmount = my_attack;
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(my_attack_id == 0)
+        if (my_attack_id == 0)
         {
-            Vector3 direction = player.transform.position - transform.position + new Vector3 (1.0f, 0, 0);
+            Vector3 direction = player.transform.position - transform.position + new Vector3(1.0f, 0, 0);
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
         }
-        if(my_attack_id == 1)
+        if (my_attack_id == 1)
         {
-            Vector3 direction = player.transform.position - transform.position + new Vector3 (4, 0, 0);
+            Vector3 direction = player.transform.position - transform.position + new Vector3(4, 0, 0);
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
             attack_cooltime -= Time.deltaTime;
-            if(attack_cooltime < 0)
+            if (attack_cooltime < 0)
             {
                 GameObject clonedObject = Instantiate(enemy_bullet, transform.position, Quaternion.identity);
                 EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
-                enemy_attack.damege = my_attack;
+                Attack attack = clonedObject.GetComponent<Attack>();
+                attack.damageAmount = my_attack;
                 enemy_attack.game_player = player;
                 attack_cooltime = 2;
             }
         }
 
-        if(my_HP <= 0)
+        if (my_HP <= 0)
         {
             // 死亡時の処理
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
-            Destroy (this.gameObject);
+            Instantiate(deathParticle,transform.position,Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

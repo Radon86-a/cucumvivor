@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2869863852684771607}
   - component: {fileID: 1517843796631151552}
   - component: {fileID: 1963382941633766955}
+  - component: {fileID: 4672697264946395047}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -82,12 +83,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,8 +106,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a4ae5f76f6bcb4fb85c7678c7da801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damege: 0
   bullet_speed: 10
   game_player: {fileID: 0}
   now_palyer_position: {x: 0, y: 0, z: 0}
   normalizedDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &4672697264946395047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380470213039716892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848c8f60c2e90a04aa90705df7be0393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attack
+  isEnemyAttack: 1
+  damageAmount: 0
+  cooltime: 0
+  disappearOnAttack: 1
+  moveType: 0
+  targetTransform: {fileID: 0}
+  parentTransform: {fileID: 0}
+  moveVector: {x: 0, y: 0}

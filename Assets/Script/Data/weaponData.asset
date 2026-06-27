@@ -14,8 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::weaponData
   weapons:
   - weapon_id: 0
-    weapon_name: "\u30C0\u30DF\u30FC"
+    weapon_name: "\u304F\u308B\u304F\u308B"
     weapon_attack: 1
     weapon_attack_id: 0
-    weapon_skin: {fileID: 0}
+    weapon_detail: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u5468\u308A\u3092\u307E\u308F\u3063\u3066\u653B\u6483\u3057\u307E\u3059\u3002"
+    weapon_skin: {fileID: -1709321161768747702, guid: d9788246a255da944a86376e0c24b75e, type: 3}
     weapon_prefab: {fileID: 1877135009959041294, guid: 75e89ae98ac9ac74685efc4df997f7f0, type: 3}
+  - weapon_id: 1
+    weapon_name: "\u8FD1\u8DDD\u96E2"
+    weapon_attack: 1
+    weapon_attack_id: 1
+    weapon_detail: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u8FD1\u304F\u3092\u5B9A\u671F\u7684\u306B\u653B\u6483\u3057\u307E\u3059"
+    weapon_skin: {fileID: -1346115156436188737, guid: bda3b93e2c8face44a1ed3dcdbcfef27, type: 3}
+    weapon_prefab: {fileID: 1877135009959041294, guid: 4df9469edbfb8454f9f3e35719822cbc, type: 3}
+  - weapon_id: 2
+    weapon_name: "\u305F\u307E"
+    weapon_attack: 1
+    weapon_attack_id: 2
+    weapon_detail: "\u6483\u3061\u307E\u3059"
+    weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
+    weapon_prefab: {fileID: 1877135009959041294, guid: 9c94241725608244382090dbc3c8264d, type: 3}

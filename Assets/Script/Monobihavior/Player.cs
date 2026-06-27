@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
@@ -30,7 +31,13 @@ public class Player : MonoBehaviour
     [Header("=== UI ===")]
     [SerializeField]
     public HPBar hpBar;
+    public GameObject UIManager;
+    public Weapon weaponUI;
 
+    
+    PlayerInputActions _playerMoveInput;
+
+    private Vector2 moveVector,moveVector2;
 
     void Start()
     {
@@ -40,6 +47,18 @@ public class Player : MonoBehaviour
         speed = playerData.pleyer_speed;
         attack_cooltime = playerData.pleyer_attack_cooltime;
         rb = GetComponent<Rigidbody2D>();
+        weapons[0] = weapon_data.weapons[0]; // 初期装備の設定
+        weaponUI.SetAll();
+        _playerMoveInput = new PlayerInputActions();
+        _playerMoveInput.Player.Move.performed += OnInputMove;
+        _playerMoveInput.Player.Move.canceled += OnInputMove;
+        _playerMoveInput.Player.Move.started += OnInputMove;
+        _playerMoveInput.Player.Enable();
+    }
+
+    private void OnInputMove(InputAction.CallbackContext context)
+    {
+        moveVector = context.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
@@ -51,15 +70,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
+        moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
     }
 
     //プレイヤーの移動
     void Move()
     {
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-        rb.MovePosition(rb.position + new Vector2(moveX, moveY) * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + moveVector2 * speed * Time.deltaTime);
 
     }
 
@@ -166,6 +184,39 @@ public class Player : MonoBehaviour
                 case 2:
                     //遠距離に固定の方向に弾を飛ばす（右方向）
                     // transform.position += (Vector3)moveVector * Time.deltaTime;
+                    if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
+					{
+						if(weapon_objects[i].obj != null)
+						{
+							for(long j = 0; j < weapon_objects[i].obj.Length; j++)
+							{
+								if(weapon_objects[i].obj[j] != null)
+								{
+									Destroy(weapon_objects[i].obj[j]);
+								}
+							}
+						}
+						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
+						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
+					}
+                    for(long j = 0; j < 1; j++)
+                    {
+                        if (weapon_objects[i].obj[j] == null)
+                        {
+                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                        }
+                        weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
+                        weapon_objects[i].obj[j].SetActive(true);
+                        Transform parent = this.transform;
+
+                        //右方向に加速度を与える
+                        weapon_objects[i].obj[j].GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                        //右に行ったら消す
+                        if(weapon_objects[i].obj[j].transform.position.x > 10f)
+                        {
+                            Destroy(weapon_objects[i].obj[j]);
+                        }
+                    }
                     break;
                 case 3:
                     //近距離の敵に自動で照準
@@ -191,7 +242,11 @@ public class Player : MonoBehaviour
 				player_level++;
 				//レベルアップ時の処理
 				//ここでUIを呼ぶ
+                UIManager.GetComponent<SelectUpgrade>().ShowSelectUI(weapon_data.weapons);
 			}
+            //経験値バーに反映
+            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 10);
+            
 			Destroy(other.gameObject);
 		}
 	}

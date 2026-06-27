@@ -19,8 +19,6 @@ public class Selection : MonoBehaviour
     {
         image.sprite = selectionWeapon.weapon_skin;
         weaponName.text = selectionWeapon.weapon_name;
-        /*
-        weaponText.text = selectionWeapon.weapon_setmei;
-        */
+        weaponText.text = selectionWeapon.weapon_detail;
     }
 }
