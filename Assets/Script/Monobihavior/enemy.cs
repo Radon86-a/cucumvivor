@@ -60,6 +60,10 @@ public class enemy : MonoBehaviour
             }
         }
 
+        if(game_data.is_boss == true)
+        {
+            my_HP = 0;
+        }
         if (my_HP <= 0)
         {
             // 死亡時の処理
