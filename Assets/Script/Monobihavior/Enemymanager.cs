@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Enemymanager : MonoBehaviour
@@ -120,18 +121,37 @@ public class Enemymanager : MonoBehaviour
         {
             for(long i = 0; i < 2 ;i++)
             {
-            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 3);
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            for(long i = 0; i < 2 ;i++)
             {
-            MakeEnemy(new Vector3(10, 0, 0), 1);
+            MakeEnemy(new Vector3(5, 10 - 20 * i, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 3);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
             }
-            cooltime = 3;
+            if(game_data.phase_time > 30 && game_data.gamephase >= 2)
+            {
+            MakeEnemy(new Vector3(-10, 5, 0), 2);
+            MakeEnemy(new Vector3(-10, -5, 0), 2);
+            }
+            if(game_data.gamephase < 1)
+            {
+                cooltime = 3;
+            }else if(game_data.gamephase == 1)
+            {
+                cooltime = 2.5f;
+            }else
+            {
+                cooltime = 2.0f;
+            }
+            
         }
         if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
