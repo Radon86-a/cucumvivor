@@ -2873,6 +2873,10 @@ PrefabInstance:
       value: EnemyManager
       objectReference: {fileID: 0}
     - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
+      propertyPath: boss_data
+      value: 
+      objectReference: {fileID: 11400000, guid: e8520c443c71a4c4c98c11fb59352f07, type: 2}
+    - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
       propertyPath: boss_prefab
       value: 
       objectReference: {fileID: 624036002525425520, guid: 14cec7435abd94c4ebf5e60af1dbcaa9, type: 3}
@@ -3848,10 +3852,7 @@ MonoBehaviour:
   damageAmount: 10
   cooltime: 0
   disappearOnAttack: 0
-  moveType: 1
-  targetTransform: {fileID: 0}
-  parentTransform: {fileID: 0}
-  moveVector: {x: 0, y: 0}
+  dp: {fileID: 0}
 --- !u!212 &1385521604
 SpriteRenderer:
   serializedVersion: 3

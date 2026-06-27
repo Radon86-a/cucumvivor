@@ -36,10 +36,13 @@ public class enemy : MonoBehaviour
     {
         if (my_attack_id == 0)
         {
-            Vector3 direction = player.transform.position - transform.position + new Vector3(1.0f, 0, 0);
+            Vector3 direction = player.transform.position - transform.position;
+            if(direction.x * direction.x + direction.y * direction.y > 0.4)
+            {
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
+            }
         }
         if (my_attack_id == 1)
         {
