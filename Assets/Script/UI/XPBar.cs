@@ -5,7 +5,7 @@ public class XPBar : MonoBehaviour
 {
     public GameObject xpBar;
     private Slider slider;
-    private long currentXP = 1;
+    private long currentXP = 0;
     private long maxXP = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
