@@ -31,7 +31,7 @@ public class Enemymanager : MonoBehaviour
         case 1:
         if(cooltime <0)
         {
-            cooltime = 2.0f;
+            cooltime = 3.0f;
         }
         break;
         default: break;
@@ -54,7 +54,7 @@ public class Enemymanager : MonoBehaviour
             {
             MakeEnemy(new Vector3(10, 5 - 5 * i, 0), 0);
             }
-            cooltime = 2;
+            cooltime = 3.0f;
         }
         if(game_data.phase_time > until_boss && is_boss == false)
             {
@@ -72,12 +72,16 @@ public class Enemymanager : MonoBehaviour
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            MakeEnemy(new Vector3(10, 0, 0), 4);
-            for(long i = 0; i < 2; i++)
+            if(game_data.phase_time > 60 && game_data.gamephase < 1)
             {
-            MakeEnemy(new Vector3(-10, 5 - 10 * i, 0), 1);
+            MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            cooltime = 2;
+            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 4);
+            MakeEnemy(new Vector3(-10, 0, 0), 1);
+            }
+            cooltime = 3;
         }
         break;
         default: break;

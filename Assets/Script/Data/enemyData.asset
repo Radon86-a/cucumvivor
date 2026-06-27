@@ -17,11 +17,11 @@ MonoBehaviour:
     enemy_HP: 10
     emeny_name: "\u30C0\u30DF\u30FC"
     enemy_attack: 10
-    enemy_speed: 10
+    enemy_speed: 2
     enemy_attack_id: 0
     enemy_skin: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
   - enemy_id: 1
-    enemy_HP: 30
+    enemy_HP: 20
     emeny_name: "\u30CB\u30F3\u30B8\u30F3"
     enemy_attack: 5
     enemy_speed: 2
