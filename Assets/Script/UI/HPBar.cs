@@ -5,9 +5,11 @@ using UnityEngine.UI;
 public class HPBar : MonoBehaviour
 {
     public GameObject hpBar;
-    public float barTipSpace = 10;
+    public float leftSpace = 10;
+    public float rightSpace = 10;
     public float minWidth = 50;
     public float barY = -20;
+    public Result result;
     private Slider slider;
     private RectTransform rect;
     private long currentHP = 1;
@@ -28,6 +30,10 @@ public class HPBar : MonoBehaviour
     void Update()
     {
         slider.value = currentHP / maxHP;
+        if(currentHP == 0)
+        {
+            doDeath();
+        }
     }
     public void SetHP(long currentHP, long maxHP)
     {
@@ -48,11 +54,16 @@ public class HPBar : MonoBehaviour
     }
     public void SetBarwidth(float width)
     {
-        float availablewidth = Screen.width - barTipSpace * 2;
+        float availablewidth = Screen.width - leftSpace - rightSpace;
         float finalwidth = Mathf.Min(width, availablewidth);
         finalwidth = Mathf.Max(width, minWidth);
-        rect.anchoredPosition = new Vector2(barTipSpace, barY);
+        rect.anchoredPosition = new Vector2(leftSpace, barY);
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, finalwidth);
+    }
+
+    void doDeath()
+    {
+        result.ShowResult();
     }
 
 }
