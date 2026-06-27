@@ -75,6 +75,13 @@ public class Attack : MonoBehaviour
     }
 
     //ダメージ表示部分
-    
+    private void Update()
+    {
+        //変なところにいたら消去
+        if(transform.position.x > 20 || transform.position.x < -20 || transform.position.y > 20 || transform.position.y < -20)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
