@@ -6,6 +6,6 @@ public class pleyerData : ScriptableObject
 {
     public long pleyer_max_HP;
     public long pleyer_attack;
-    public long pleyer_speed;
-    public long pleyer_attack_cooltime;
+    public float pleyer_speed;
+    public float pleyer_attack_freq;
 }
