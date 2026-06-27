@@ -157,6 +157,8 @@ public class Player : MonoBehaviour
                         {
                             weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
                         }
+                        SpriteRenderer targetRenderer0 = weapon_objects[i].obj[j].GetComponent<SpriteRenderer>();
+                        targetRenderer0.sprite = weapons[i].weapon_skin;
                         weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
 						float radius = 1.0f; // 回転半径
@@ -192,6 +194,8 @@ public class Player : MonoBehaviour
                         {
                             weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
                         }
+                        SpriteRenderer targetRenderer1 = weapon_objects[i].obj[j].GetComponent<SpriteRenderer>();
+                        targetRenderer1.sprite = weapons[i].weapon_skin;
                         weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
                         parent = this.transform;
@@ -239,6 +243,8 @@ public class Player : MonoBehaviour
                     }
                     weapon_lastAttackTimes[i] = nowtime;
                     var newbullet2 = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                    SpriteRenderer targetRenderer3 = newbullet2.GetComponent<SpriteRenderer>();
+                    targetRenderer3.sprite = weapons[i].weapon_skin;
                     newbullet2.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
 
                     //右方向に加速度を与える
