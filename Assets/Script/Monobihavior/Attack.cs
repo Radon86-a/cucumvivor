@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 public class Attack : MonoBehaviour
 {
+    public gameData game_data;
     //味方の攻撃か敵の攻撃か
     public bool isEnemyAttack = false;
     //カメラの取得
@@ -46,7 +47,10 @@ public class Attack : MonoBehaviour
                 Player player = collision.GetComponent<Player>();
                 if(player != null)
                 {
-                    shake();
+                    if(game_data.is_gaming == true)
+                    {
+                        shake();
+                    }
                     player.HP -= damageAmount;
                     if(disappearOnAttack)
                     {

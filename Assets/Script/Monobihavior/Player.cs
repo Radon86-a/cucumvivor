@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using TMPro;
 public class Player : MonoBehaviour
 {
 	[Header("=== ステータス ===")]
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
     public HPBar hpBar;
     public GameObject UIManager;
     public Weapon weaponUI;
+    public TextMeshProUGUI attackText;
+    public TextMeshProUGUI speedText;
 
     
     PlayerInputActions _playerMoveInput;
@@ -75,6 +78,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        attackText.text = "atk:" + attack;
+        speedText.text = "spe:" + speed;
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
         moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
         //-9~9,-5~5に移動を制限

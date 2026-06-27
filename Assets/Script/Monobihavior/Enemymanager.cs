@@ -17,6 +17,7 @@ public class Enemymanager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        game_data.is_gaming = true;
         game_data.kill_enemy = 0;
         game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
         game_data.game_time = 0f;
@@ -44,6 +45,7 @@ public class Enemymanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        game_data.score = game_data.gamephase *100 + game_data.kill_enemy * 10;
         game_data.game_time += Time.deltaTime;
         game_data.phase_time += Time.deltaTime;
         cooltime -= Time.deltaTime;
