@@ -5503,6 +5503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848c8f60c2e90a04aa90705df7be0393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
+  game_data: {fileID: 0}
   isEnemyAttack: 1
   cameraAction: {fileID: 0}
   damageAmount: 10
