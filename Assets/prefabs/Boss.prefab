@@ -136,6 +136,7 @@ MonoBehaviour:
   damageAmount: 0
   cooltime: 0
   disappearOnAttack: 1
+  damaged_SE: {fileID: 8300000, guid: d3e02864dabc39745b18b64ad1dcb35b, type: 3}
   dp: {fileID: 0}
 --- !u!58 &-3551592916942715819
 CircleCollider2D:

@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI speedText;
 
+    [Header("=== SE ===")]
+    public AudioClip get_SE;
     
     PlayerInputActions _playerMoveInput;
 
@@ -267,6 +269,7 @@ public class Player : MonoBehaviour
 	{
 		if(other.gameObject.CompareTag("EXP"))
 		{
+            AudioManager.Instance.PlaySoundOneShot(get_SE);
 			player_exp += other.gameObject.GetComponent<expItem>().exp_amount;
 			if(player_exp >= player_level * 5)
 			{
