@@ -83,6 +83,7 @@ public class Boss : MonoBehaviour
             game_data.gamephase ++;
             game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
             game_data.phase_time = 0f;
+            game_data.is_boss = false;
             Destroy (this.gameObject);
         }
     }
