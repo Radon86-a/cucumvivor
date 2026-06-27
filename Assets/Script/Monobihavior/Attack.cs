@@ -71,6 +71,24 @@ public class Attack : MonoBehaviour
                     }
                 }
             }
+            if(collision.CompareTag("BOSS"))
+            {
+                if(nowtime - lastAttackTime < cooltime)
+                {
+                    return;
+                }
+                lastAttackTime = nowtime;
+                Boss boss = collision.GetComponent<Boss>();
+                if(boss != null)
+                {
+                    boss.boss_my_HP -= damageAmount;
+                    if(dp!=null)dp.showDamage(damageAmount, boss.transform.position);
+                    if(disappearOnAttack)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
         }
     }
 
