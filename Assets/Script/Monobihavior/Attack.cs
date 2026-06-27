@@ -3,9 +3,9 @@ using TMPro;
 public class Attack : MonoBehaviour
 {
     //味方の攻撃か敵の攻撃か
-    
     public bool isEnemyAttack = false;
-
+    //カメラの取得
+    public CameraAction cameraAction;
     //ダメージ量
     public long damageAmount = 0;
     public float cooltime = 0.0f;
@@ -17,6 +17,10 @@ public class Attack : MonoBehaviour
     
     float nowtime = 0.0f;
     public DamagePopup dp;
+    public void shake()
+    {
+        cameraAction.Shake(0.2f, 0.2f);
+    }
     void Start()
     {
         dp = GetComponent<DamagePopup>();
@@ -42,6 +46,7 @@ public class Attack : MonoBehaviour
                 Player player = collision.GetComponent<Player>();
                 if(player != null)
                 {
+                    shake();
                     player.HP -= damageAmount;
                     if(disappearOnAttack)
                     {

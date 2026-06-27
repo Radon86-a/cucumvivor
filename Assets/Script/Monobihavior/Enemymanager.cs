@@ -9,6 +9,8 @@ public class Enemymanager : MonoBehaviour
     public GameObject game_player;
     public GameObject Enemy_bullet;
     public GameObject boss_prefab;
+    //カメラの取得
+    public CameraAction cameraAction;
     public long until_boss = 60;
     public long on_boss;
     public float cooltime;
@@ -147,6 +149,7 @@ public class Enemymanager : MonoBehaviour
         enemy_.my_id = id;
         enemy_.player = game_player;
         enemy_.enemy_bullet = Enemy_bullet;
+        enemy_.cameraAction = cameraAction;
     }
     void MakeBoss(Vector3 iti)
     {
@@ -154,5 +157,6 @@ public class Enemymanager : MonoBehaviour
         Boss boss = clonedObject.GetComponent<Boss>();
         boss.boss_id = game_data.now_boss_id;
         boss.player = game_player;
+        boss.cameraAction = cameraAction;
     }
 }

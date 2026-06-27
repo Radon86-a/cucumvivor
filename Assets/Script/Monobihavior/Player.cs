@@ -217,6 +217,8 @@ public class Player : MonoBehaviour
                     }
                     weapon_lastAttackTimes[i] = nowtime;
                     var newbullet = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                    SpriteRenderer targetRenderer = newbullet.GetComponent<SpriteRenderer>();
+                    targetRenderer.sprite = weapons[i].weapon_skin;
                     newbullet.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
 
                     //右方向に加速度を与える
