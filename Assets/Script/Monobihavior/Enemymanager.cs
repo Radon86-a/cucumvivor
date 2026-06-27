@@ -14,6 +14,18 @@ public class Enemymanager : MonoBehaviour
         game_data.now_boss_id = Random.Range(0, enemy_data.enemies.Length - 1);
         game_data.game_time = 0f;
         game_data.phase_time = 0f;
+        switch(game_data.now_boss_id)
+        {
+        case 0:
+        if(cooltime <0)
+        {
+            cooltime = 2.5f;
+        }
+        break;
+        case 1:
+        break;
+        default: break;
+        }
     }
 
     // Update is called once per frame
@@ -25,14 +37,20 @@ public class Enemymanager : MonoBehaviour
         switch(game_data.now_boss_id)
         {
         case 0:
+        //ダミーボスの場合の雑魚敵
         if(cooltime <0)
         {
-            GameObject clonedObject = Instantiate(enemy_prefab, new Vector3(10, 0, 0), Quaternion.identity);
+            for(long i = 0; i < 3; i++)
+            {
+            GameObject clonedObject = Instantiate(enemy_prefab, new Vector3(10, 5 - 5 * i, 0), Quaternion.identity);
             enemy enemy_ = clonedObject.GetComponent<enemy>();
             enemy_.my_id = 0;
             enemy_.player = game_player;
+            }
             cooltime = 2;
         }
+        break;
+        case 1:
         break;
         default: break;
         }

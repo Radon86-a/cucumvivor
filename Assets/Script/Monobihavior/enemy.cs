@@ -11,6 +11,7 @@ public class enemy : MonoBehaviour
     public long my_attack;
     public long my_attack_id;
     public long my_speed;
+    public float attack_cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +38,11 @@ public class enemy : MonoBehaviour
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
+            attack_cooltime += Time.deltaTime;
+            if(attack_cooltime < 0)
+            {
+                //敵の遠距離攻撃
+            }
         }
 
         if(my_HP <= 0)
