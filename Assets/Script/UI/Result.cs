@@ -9,11 +9,11 @@ public class Result : MonoBehaviour
     void Start()
     {
         result.SetActive(false);
-        killText.text = "撃破数:" + game_data.kill_enemy;
     }
     public void ShowResult()
     {
         result.SetActive(true);
+        killText.text = "撃破数:" + game_data.kill_enemy;
         Time.timeScale = 0f;
     }
 }
