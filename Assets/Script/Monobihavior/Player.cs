@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     [Header("=== UI ===")]
     [SerializeField]
     public HPBar hpBar;
+    public GameObject UIManager;
+
 
 
     void Start()
@@ -166,6 +168,39 @@ public class Player : MonoBehaviour
                 case 2:
                     //遠距離に固定の方向に弾を飛ばす（右方向）
                     // transform.position += (Vector3)moveVector * Time.deltaTime;
+                    if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
+					{
+						if(weapon_objects[i].obj != null)
+						{
+							for(long j = 0; j < weapon_objects[i].obj.Length; j++)
+							{
+								if(weapon_objects[i].obj[j] != null)
+								{
+									Destroy(weapon_objects[i].obj[j]);
+								}
+							}
+						}
+						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
+						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
+					}
+                    for(long j = 0; j < 1; j++)
+                    {
+                        if (weapon_objects[i].obj[j] == null)
+                        {
+                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                        }
+                        weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
+                        weapon_objects[i].obj[j].SetActive(true);
+                        Transform parent = this.transform;
+
+                        //右方向に加速度を与える
+                        weapon_objects[i].obj[j].GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                        //右に行ったら消す
+                        if(weapon_objects[i].obj[j].transform.position.x > 10f)
+                        {
+                            Destroy(weapon_objects[i].obj[j]);
+                        }
+                    }
                     break;
                 case 3:
                     //近距離の敵に自動で照準
@@ -191,6 +226,7 @@ public class Player : MonoBehaviour
 				player_level++;
 				//レベルアップ時の処理
 				//ここでUIを呼ぶ
+                UIManager.GetComponent<SelectUpgrade>().ShowSelectUI(weapon_data.weapons);
 			}
 			Destroy(other.gameObject);
 		}
