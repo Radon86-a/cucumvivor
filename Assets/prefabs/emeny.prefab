@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2313909215548110341}
   - component: {fileID: 6158063270523098309}
   - component: {fileID: -3879586831432995892}
+  - component: {fileID: 2099733640457546789}
   m_Layer: 0
   m_Name: emeny
   m_TagString: Enemy
@@ -154,3 +155,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &2099733640457546789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272644269038586464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848c8f60c2e90a04aa90705df7be0393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attack
+  isEnemyAttack: 1
+  damageAmount: 0
+  cooltime: 0
+  disappearOnAttack: 0
+  moveType: 0
+  targetTransform: {fileID: 0}
+  parentTransform: {fileID: 0}
+  moveVector: {x: 0, y: 0}
