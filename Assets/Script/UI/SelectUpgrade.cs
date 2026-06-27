@@ -62,6 +62,25 @@ public class SelectUpgrade : MonoBehaviour
     }
     public void SendSelectedWeaponData(Weapons selectedWeapon)
     {
+        if (selectedWeapon.use_as_item)
+        {
+            //アイテムとして使用する場合の処理
+            switch(selectedWeapon.weapon_id)
+            {
+                case 13:
+                    //きゅうりの冠
+                    player.max_HP += 100;
+                break;
+                case 14:
+                    //ぜんきゅうり
+                    player.max_HP = (long)(player.max_HP* 1.2f);
+                break;
+                
+                default:
+                    print("未実装のアイテムです。");
+                    break;
+            }
+        }
         //選択された武器のデータをplayerの伝える関数
         //仮設置
         print("選択された武器id"+selectedWeapon.weapon_id+"名前"+selectedWeapon.weapon_name);
