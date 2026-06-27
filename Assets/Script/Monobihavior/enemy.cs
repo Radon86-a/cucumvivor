@@ -3,6 +3,7 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
     public Transform player;
+    public GameObject exp;
     public enemyData enemy_data;
     public gameData game_data;
     public long my_id;
@@ -28,7 +29,17 @@ public class enemy : MonoBehaviour
             Vector3 direction = player.position - transform.position;
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
-            transform.position += normalizedDirection * my_speed;
+            transform.position += normalizedDirection * my_speed * Time.deltaTime;
+        }
+
+        if(my_HP <= 0)
+        {
+            
+            // 死亡時の処理
+            GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
+            expItem exp_item = clonedObject.GetComponent<expItem>();
+            exp_item.exp_amount = 1;
+            Destroy (this.gameObject);
         }
     }
 }
