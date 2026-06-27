@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 157546205}
   - component: {fileID: 157546204}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: weapon_detail_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: 306}
+  m_AnchoredPosition: {x: 218, y: -63}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157546204
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 1042448262}
   - component: {fileID: 1042448261}
   m_Layer: 5
-  m_Name: Image
+  m_Name: weapon_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 1236001973}
   - component: {fileID: 1236001972}
   - component: {fileID: 1236001971}
+  - component: {fileID: 1236001975}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -604,6 +605,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1236001975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236001970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f362f3f07bfd545821ca1bcb7c95d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDisplay
+  weaponDatabase: {fileID: 11400000, guid: ad1b81cdf3ff58746b783d35f9b3a627, type: 2}
+  nameText: {fileID: 1311016870}
+  detailText: {fileID: 157546204}
+  weaponImage: {fileID: 1042448261}
 --- !u!1 &1289077178
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +770,7 @@ GameObject:
   - component: {fileID: 1311016871}
   - component: {fileID: 1311016870}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: weapon_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,6 +1093,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464856616}
   m_CullTransparentMesh: 1
+--- !u!1 &1618182958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618182960}
+  - component: {fileID: 1618182959}
+  m_Layer: 0
+  m_Name: Weapon_something
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1618182959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618182958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f362f3f07bfd545821ca1bcb7c95d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDisplay
+  weaponDatabase: {fileID: 11400000, guid: ad1b81cdf3ff58746b783d35f9b3a627, type: 2}
+  nameText: {fileID: 1311016870}
+  detailText: {fileID: 157546204}
+  weaponImage: {fileID: 1042448261}
+--- !u!4 &1618182960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618182958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 404.56268, y: 237.43262, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778264490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2004468621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1236001975}
+        m_TargetAssemblyTypeName: WeaponDisplay, Assembly-CSharp
+        m_MethodName: ShowWeapon
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2004468621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1505,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 724645976}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.45812482
+  m_Size: 0.251722
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1557,3 +1634,4 @@ SceneRoots:
   - {fileID: 489890849}
   - {fileID: 1236001974}
   - {fileID: 2146284944}
+  - {fileID: 1618182960}
