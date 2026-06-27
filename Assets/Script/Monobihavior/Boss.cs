@@ -87,7 +87,21 @@ public class Boss : MonoBehaviour
         
         break;
         case 2:
-        
+        if(boss_one)
+        {
+            transform.position += new Vector3 (0, 1, 0) * boss_my_speed * Time.deltaTime;
+            if(transform.position.y > 5)
+            {
+                boss_one = !boss_one;
+            }
+        }else
+        {
+            transform.position += new Vector3 (0, 1, 0) * boss_my_speed * Time.deltaTime * (-1);
+            if(transform.position.y < -5)
+            {
+                boss_one = !boss_one;
+            }
+        }
         break;
         case 3:
         
