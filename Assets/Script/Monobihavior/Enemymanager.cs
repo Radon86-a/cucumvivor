@@ -72,12 +72,16 @@ public class Enemymanager : MonoBehaviour
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            if(game_data.phase_time > 60)
+            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 1);
+            }
+            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
             }
-            cooltime = 2;
+            cooltime = 3;
         }
         break;
         default: break;
