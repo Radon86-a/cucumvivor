@@ -47,7 +47,8 @@ public class enemy : MonoBehaviour
             {
                 GameObject clonedObject = Instantiate(enemy_bullet, transform.position, Quaternion.identity);
                 EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
-                enemy_attack.damege = my_attack;
+                Attack attack = clonedObject.GetComponent<Attack>();
+                attack.damageAmount = my_attack;
                 enemy_attack.game_player = player;
                 attack_cooltime = 2;
             }
