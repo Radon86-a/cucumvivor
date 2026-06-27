@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour
         boss_my_speed = boss_data.bosses[boss_id].boss_speed;
         myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sprite = boss_data.bosses[boss_id].boss_skin;
+        GetComponent<Attack>().damageAmount = boss_my_attack;
     }
 
     // Update is called once per frame
@@ -34,6 +35,12 @@ public class Boss : MonoBehaviour
         
         break;
         case 1:
+        
+        break;
+        case 2:
+        
+        break;
+        case 3:
         
         break;
         default: break;
