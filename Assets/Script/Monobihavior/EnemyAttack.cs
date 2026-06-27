@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public long damege;
     public long bullet_speed = 10;
     public GameObject game_player;
     public Vector3 now_palyer_position;
