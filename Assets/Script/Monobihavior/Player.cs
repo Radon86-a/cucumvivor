@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	[Header("=== ステータス ===")]
     public pleyerData playerData;
     public long HP, attack, speed, attack_cooltime;
 
     private float attack_timer = 0.0f;
     private Rigidbody2D rb;
 
+	[Header("=== 武器 ===")]
     [SerializeField]
 	weaponData weapon_data;
-    public int weapon_count = 0;
-    public int[] weapon_levels = new int[10];
+    public long weapon_count = 0;
+    public long[] weapon_levels = new long[10];
     public Weapons[] weapons = new Weapons[10];
     //武器のオブジェクト（二次元動的配列）
 	public Weaponobj[] weapon_objects = new Weaponobj[10];
@@ -20,6 +22,11 @@ public class Player : MonoBehaviour
 		public GameObject[] obj;
 	};
 	float nowtime = 0.0f;
+
+	[Header("=== レベルとexp ===")]
+	public long player_level = 1;
+	public long player_exp = 0;
+
 
     void Start()
     {
@@ -58,7 +65,7 @@ public class Player : MonoBehaviour
         // }
         // attack_timer = 0.0f;
         //ここに攻撃処理を書く
-        for(int i = 0; i < weapon_count; i++)
+        for(long i = 0; i < weapon_count; i++)
         {
 			if(weapons[i].weapon_prefab == null)
 			{
@@ -73,7 +80,7 @@ public class Player : MonoBehaviour
 						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
 						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
 					}
-                    for(int j = 0; j < weapon_levels[i]; j++)
+                    for(long j = 0; j < weapon_levels[i]; j++)
                     {
                         if (weapon_objects[i].obj[j] == null)
                         {
@@ -106,4 +113,21 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+	//EXPを拾う
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("EXP"))
+		{
+			player_exp += other.gameObject.GetComponent<expItem>().exp_amount;
+			if(player_exp >= player_level * 10)
+			{
+				player_exp -= player_level * 10;
+				player_level++;
+				//レベルアップ時の処理
+				//ここでUIを呼ぶ
+			}
+			Destroy(other.gameObject);
+		}
+	}
 }
