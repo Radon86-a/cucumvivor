@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < maxWeapon; i++)
         {
             long lv = player.weapon_levels[i];
-            if (lv <= 0)
+            if (lv <= 0 || i >= player.weapon_count)
             {
                 levelObj[i].text = "";
             }
