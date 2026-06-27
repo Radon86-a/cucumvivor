@@ -52,6 +52,7 @@ public class SelectUpgrade : MonoBehaviour
     {
         //選択された武器のデータをplayerの伝える関数
         //仮設置
+        print("選択された武器id"+selectedWeapon.weapon_id);
         Debug.Log(selectedWeapon.weapon_name);
     }
 }

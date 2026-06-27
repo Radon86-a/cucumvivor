@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
 	public long player_level = 1;
 	public long player_exp = 0;
 
+    [Header("=== UI ===")]
+    [SerializeField]
+    public HPBar hpBar;
+
 
     void Start()
     {
@@ -43,6 +47,10 @@ public class Player : MonoBehaviour
 		nowtime += Time.deltaTime;
         Move();
         playerAttack();
+    }
+    void Update()
+    {
+        hpBar.SetHP(HP, playerData.pleyer_max_HP);
     }
 
     //プレイヤーの移動
@@ -95,8 +103,8 @@ public class Player : MonoBehaviour
                         if (weapon_objects[i].obj[j] == null)
                         {
                             weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
-							weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         }
+                        weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
                         Transform parent = this.transform;
 						float radius = 1.0f; // 回転半径
@@ -107,8 +115,53 @@ public class Player : MonoBehaviour
                     }
                     //Parentの周りを円形に回転
                     break;
+                
                 case 1:
                     //近距離攻撃
+                    if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
+					{
+						if(weapon_objects[i].obj != null)
+						{
+							for(long j = 0; j < weapon_objects[i].obj.Length; j++)
+							{
+								if(weapon_objects[i].obj[j] != null)
+								{
+									Destroy(weapon_objects[i].obj[j]);
+								}
+							}
+						}
+						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
+						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
+					}
+                    for(long j = 0; j < 1; j++)
+                    {
+                        if (weapon_objects[i].obj[j] == null)
+                        {
+                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                        }
+                        weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
+                        weapon_objects[i].obj[j].SetActive(true);
+                        Transform parent = this.transform;
+
+                        //Phisics2D.OverLapCIrcleAllで近距離の敵を取得してそっちの向きに攻撃オブジェクトを動かす
+                        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(parent.position, 2f);
+                        foreach (var hitCollider in hitColliders)
+                        {
+                            if (hitCollider.CompareTag("Enemy"))
+                            {
+                                Vector3 direction = (hitCollider.transform.position - parent.position).normalized;
+                                weapon_objects[i].obj[j].transform.position = parent.position + direction;
+                                break;
+                            }
+                        }
+
+
+						// float radius = 1.0f; // 回転半径
+						// float speed = 2.0f; // 回転速度
+						// float angle = nowtime * speed + j*(2*(3.141592653589f))/(weapon_levels[i]); // 現在の角度
+						// Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+						// weapon_objects[i].obj[j].transform.position = parent.position + offset;
+                    }
                     break;
                 case 2:
                     //遠距離に固定の方向に弾を飛ばす（右方向）

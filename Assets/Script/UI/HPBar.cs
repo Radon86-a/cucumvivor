@@ -29,7 +29,7 @@ public class HPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = currentHP / maxHP;
+        slider.value = (float)currentHP / (float)maxHP;
         if(currentHP == 0)
         {
             doDeath();
