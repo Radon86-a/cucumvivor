@@ -13,5 +13,10 @@ public class expItem : MonoBehaviour
     void Update()
     {
         transform.Translate(-2.0f * Time.deltaTime, 0, 0f); 
+        float x = transform.position.x;
+        if(x < -10)
+        {
+            Destroy (this.gameObject);
+        }
     }
 }
