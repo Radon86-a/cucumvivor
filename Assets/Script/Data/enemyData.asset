@@ -19,4 +19,4 @@ MonoBehaviour:
     enemy_attack: 10
     enemy_speed: 10
     enemy_attack_id: 0
-    enemy_skin: {fileID: 0}
+    enemy_skin: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}

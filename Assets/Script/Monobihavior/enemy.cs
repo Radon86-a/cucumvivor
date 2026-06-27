@@ -12,6 +12,7 @@ public class enemy : MonoBehaviour
     public long my_attack_id;
     public long my_speed;
     public float attack_cooltime;
+    private SpriteRenderer myRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,8 @@ public class enemy : MonoBehaviour
         my_attack = (game_data.gamephase + 1) * enemy_data.enemies[my_id].enemy_attack;
         my_attack_id = enemy_data.enemies[my_id].enemy_attack_id;
         my_speed = enemy_data.enemies[my_id].enemy_speed;
+        myRenderer = GetComponent<SpriteRenderer>();
+        myRenderer.sprite = enemy_data.enemies[my_id].enemy_skin;
     }
 
     // Update is called once per frame
