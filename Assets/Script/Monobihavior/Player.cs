@@ -76,6 +76,23 @@ public class Player : MonoBehaviour
     {
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
         moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
+        //-9~9,-5~5に移動を制限
+        if(transform.position.x < -9)
+        {
+            transform.position = new Vector3(-9, transform.position.y, transform.position.z);
+        }
+        if(transform.position.x > 9)
+        {
+            transform.position = new Vector3(9, transform.position.y, transform.position.z);
+        }
+        if(transform.position.y < -5)
+        {
+            transform.position = new Vector3(transform.position.x, -5, transform.position.z);
+        }
+        if(transform.position.y > 5)
+        {
+            transform.position = new Vector3(transform.position.x, 5, transform.position.z);
+        }
     }
 
     //プレイヤーの移動
@@ -83,6 +100,8 @@ public class Player : MonoBehaviour
     {
 
         rb.MovePosition(rb.position + moveVector2 * speed * Time.deltaTime);
+        //画面外に行ったら戻す
+
 
     }
 
