@@ -20,3 +20,17 @@ MonoBehaviour:
     enemy_speed: 10
     enemy_attack_id: 0
     enemy_skin: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
+  - enemy_id: 1
+    enemy_HP: 50
+    emeny_name: "\u30CB\u30F3\u30B8\u30F3"
+    enemy_attack: 5
+    enemy_speed: 3
+    enemy_attack_id: 0
+    enemy_skin: {fileID: -2076128621432068708, guid: 3a9537110e65a1b4a93947ab166aeec1, type: 3}
+  - enemy_id: 2
+    enemy_HP: 100
+    emeny_name: "\u5927\u6839"
+    enemy_attack: 5
+    enemy_speed: 3
+    enemy_attack_id: 0
+    enemy_skin: {fileID: -8498350245182107156, guid: 01d839169b1b7aa4ca536d6d5975f5b5, type: 3}
