@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public pleyerData playerData;
     public long HP, attack, speed, attack_cooltime;
 
-    private float attack_timer = 0.0f;
     private Rigidbody2D rb;
 
 	[Header("=== 武器 ===")]
@@ -16,6 +15,8 @@ public class Player : MonoBehaviour
     public long weapon_count = 0;
     public long[] weapon_levels = new long[10];
     public Weapons[] weapons = new Weapons[10];
+    private float[] weapon_cooltimes = new float[10];
+    private float[] weapon_lastAttackTimes = new float[10];
     //武器のオブジェクト（二次元動的配列）
 	public Weaponobj[] weapon_objects = new Weaponobj[10];
 	public struct Weaponobj
@@ -54,6 +55,10 @@ public class Player : MonoBehaviour
         _playerMoveInput.Player.Move.canceled += OnInputMove;
         _playerMoveInput.Player.Move.started += OnInputMove;
         _playerMoveInput.Player.Enable();
+        for(int i = 0; i < 10; i++)
+        {
+            weapon_cooltimes[i] = 1.0f;
+        }
     }
 
     private void OnInputMove(InputAction.CallbackContext context)
@@ -71,6 +76,23 @@ public class Player : MonoBehaviour
     {
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
         moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
+        //-9~9,-5~5に移動を制限
+        if(transform.position.x < -9)
+        {
+            transform.position = new Vector3(-9, transform.position.y, transform.position.z);
+        }
+        if(transform.position.x > 9)
+        {
+            transform.position = new Vector3(9, transform.position.y, transform.position.z);
+        }
+        if(transform.position.y < -5)
+        {
+            transform.position = new Vector3(transform.position.x, -5, transform.position.z);
+        }
+        if(transform.position.y > 5)
+        {
+            transform.position = new Vector3(transform.position.x, 5, transform.position.z);
+        }
     }
 
     //プレイヤーの移動
@@ -78,12 +100,15 @@ public class Player : MonoBehaviour
     {
 
         rb.MovePosition(rb.position + moveVector2 * speed * Time.deltaTime);
+        //画面外に行ったら戻す
+
 
     }
 
 
     void playerAttack()
     {
+        Transform parent = this.transform;
         // attack_timer += Time.deltaTime * attack_cooltime;
         // if(attack_timer < 1.0f)
         // {
@@ -100,6 +125,8 @@ public class Player : MonoBehaviour
             switch(weapons[i].weapon_attack_id)
             {
                 case 0:
+                    {
+                        
                     //追従型
 					if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
 					{
@@ -124,7 +151,6 @@ public class Player : MonoBehaviour
                         }
                         weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
-                        Transform parent = this.transform;
 						float radius = 1.0f; // 回転半径
 						float speed = 2.0f; // 回転速度
 						float angle = nowtime * speed + j*(2*(3.141592653589f))/(weapon_levels[i]); // 現在の角度
@@ -132,9 +158,10 @@ public class Player : MonoBehaviour
 						weapon_objects[i].obj[j].transform.position = parent.position + offset;
                     }
                     //Parentの周りを円形に回転
-                    break;
-                
+                    }break;                
                 case 1:
+                {
+                        
                     //近距離攻撃
                     if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
 					{
@@ -159,7 +186,7 @@ public class Player : MonoBehaviour
                         }
                         weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
-                        Transform parent = this.transform;
+                        parent = this.transform;
 
                         //Phisics2D.OverLapCIrcleAllで近距離の敵を取得してそっちの向きに攻撃オブジェクトを動かす
                         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(parent.position, 2f);
@@ -180,43 +207,19 @@ public class Player : MonoBehaviour
 						// Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
 						// weapon_objects[i].obj[j].transform.position = parent.position + offset;
                     }
-                    break;
+                }break;
                 case 2:
-                    //遠距離に固定の方向に弾を飛ばす（右方向）
-                    // transform.position += (Vector3)moveVector * Time.deltaTime;
-                    if(weapon_objects[i].obj== null || weapon_objects[i].obj.Length != weapon_levels[i])
-					{
-						if(weapon_objects[i].obj != null)
-						{
-							for(long j = 0; j < weapon_objects[i].obj.Length; j++)
-							{
-								if(weapon_objects[i].obj[j] != null)
-								{
-									Destroy(weapon_objects[i].obj[j]);
-								}
-							}
-						}
-						//weapon_levels[i]の数だけGameObjectを生成してweapon_objects[i].objに格納
-						weapon_objects[i].obj = new GameObject[weapon_levels[i]];
-					}
-                    for(long j = 0; j < 1; j++)
+                    //時間が経過していたら実行
+                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
                     {
-                        if (weapon_objects[i].obj[j] == null)
-                        {
-                            weapon_objects[i].obj[j] = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
-                        }
-                        weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
-                        weapon_objects[i].obj[j].SetActive(true);
-                        Transform parent = this.transform;
-
-                        //右方向に加速度を与える
-                        weapon_objects[i].obj[j].GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
-                        //右に行ったら消す
-                        if(weapon_objects[i].obj[j].transform.position.x > 10f)
-                        {
-                            Destroy(weapon_objects[i].obj[j]);
-                        }
+                        return;
                     }
+                    weapon_lastAttackTimes[i] = nowtime;
+                    var newbullet = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                    newbullet.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
+
+                    //右方向に加速度を与える
+                    newbullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
                     break;
                 case 3:
                     //近距離の敵に自動で照準
@@ -236,16 +239,16 @@ public class Player : MonoBehaviour
 		if(other.gameObject.CompareTag("EXP"))
 		{
 			player_exp += other.gameObject.GetComponent<expItem>().exp_amount;
-			if(player_exp >= player_level * 10)
+			if(player_exp >= player_level * 5)
 			{
-				player_exp -= player_level * 10;
+				player_exp -= player_level * 5;
 				player_level++;
 				//レベルアップ時の処理
 				//ここでUIを呼ぶ
                 UIManager.GetComponent<SelectUpgrade>().ShowSelectUI(weapon_data.weapons);
 			}
             //経験値バーに反映
-            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 10);
+            UIManager.GetComponent<XPBar>().SetXP(player_exp,player_level * 5);
             
 			Destroy(other.gameObject);
 		}
