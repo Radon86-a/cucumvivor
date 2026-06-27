@@ -19,15 +19,15 @@ public class Boss : MonoBehaviour
         boss_my_speed = boss_data.bosses[boss_id].boss_speed;
         myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sprite = boss_data.bosses[boss_id].boss_skin;
-        while(transform.position.x > 7)
-        {
-            transform.position += new Vector3 (1, 0, 0) * boss_my_speed * Time.deltaTime * (-1);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        while(transform.position.x > 7)
+        {
+            transform.position += new Vector3 (1, 0, 0) * boss_my_speed * Time.deltaTime * (-1);
+        }
         switch(game_data.now_boss_id)
         {
         case 0:
