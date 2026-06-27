@@ -4,6 +4,7 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
+    public Player player;
     public Weapons[] holdWeapons = new Weapons[5];
     public Image[] slotObj = new Image[5];
     public int[] levels = new int[5];
@@ -16,9 +17,9 @@ public class Weapon : MonoBehaviour
     }
     public void SetImage()
     {
-        for (int i = 0; i < 5; i++)
+        for(int i = 0; i < player.weapon_counts; i++)
         {
-            slotObj[i].sprite = holdWeapons[i].weapon_skin;
+            
         }
     }
     public void SetLevel()
