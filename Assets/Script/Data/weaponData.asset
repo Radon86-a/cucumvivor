@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::weaponData
   weapons:
   - weapon_id: 0
-    weapon_name: 
-    weapon_attack: 0
-    weapon_attack_id: 0
+    weapon_name: "\u30C0\u30DF\u30FC"
+    weapon_attack: 1
+    weapon_attack_id: 1

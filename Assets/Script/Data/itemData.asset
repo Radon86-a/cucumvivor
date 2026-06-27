@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::itemData
   items:
   - item_id: 0
-    item_name: 
-    status_id: 0
-    increment: 0
+    item_name: "\u30C0\u30DF\u30FC"
+    status_id: 1
+    increment: -100
