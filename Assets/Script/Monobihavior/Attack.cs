@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     //ダメージのタイプ
     //攻撃時に消える/持続ダメージ
     public bool disappearOnAttack = true;
-
+    public AudioClip damaged_SE;
     
     float nowtime = 0.0f;
     public DamagePopup dp;
@@ -50,6 +50,7 @@ public class Attack : MonoBehaviour
                     if(game_data.is_gaming == true)
                     {
                         shake();
+                        AudioManager.Instance.PlaySoundOneShot(damaged_SE);
                     }
                     player.HP -= damageAmount;
                     if(disappearOnAttack)

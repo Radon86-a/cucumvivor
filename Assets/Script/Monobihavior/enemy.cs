@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public gameData game_data;
     //カメラの取得
     public CameraAction cameraAction;
+    public AudioClip killed_SE;
     public long my_id;
     public long my_HP;
     public long my_attack;
@@ -76,6 +77,7 @@ public class enemy : MonoBehaviour
             exp_item.exp_amount = 1;
             Instantiate(deathParticle,transform.position,Quaternion.identity);
             game_data.kill_enemy ++;
+            AudioManager.Instance.PlaySoundOneShot(killed_SE);
             Destroy(this.gameObject);
         }
     }

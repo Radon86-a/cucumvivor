@@ -114,6 +114,7 @@ MonoBehaviour:
   enemy_data: {fileID: 11400000, guid: 1c204553a5eac7c46bff83159a93b5d5, type: 2}
   game_data: {fileID: 11400000, guid: ef14c9ab499d7804786a75298c9dda5d, type: 2}
   cameraAction: {fileID: 0}
+  killed_SE: {fileID: 8300000, guid: 3a362cd3119c7e14c80ae72458e7ded8, type: 3}
   my_id: 0
   my_HP: 0
   my_attack: 0
@@ -174,4 +175,5 @@ MonoBehaviour:
   damageAmount: 0
   cooltime: 0
   disappearOnAttack: 0
+  damaged_SE: {fileID: 8300000, guid: d3e02864dabc39745b18b64ad1dcb35b, type: 3}
   dp: {fileID: 0}
