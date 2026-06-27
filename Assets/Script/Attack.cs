@@ -3,7 +3,8 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     //味方の攻撃か敵の攻撃か
-    bool isEnemyAttack = false;
+    
+    public bool isEnemyAttack = false;
 
     //ダメージ量
     public long damageAmount = 0;
@@ -72,27 +73,30 @@ public class Attack : MonoBehaviour
     //攻撃の当たり判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("Attack collided with: " + collision.gameObject.name);
         if(nowtime - lastAttackTime < cooltime)
         {
+            print("Attack is on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
             return;
         }
+        print("Attack is not on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
         lastAttackTime = nowtime;
         //敵の攻撃か味方の攻撃かで判定
         if(isEnemyAttack)
         {
-            //敵の攻撃の場合、プレイヤーに当たったらダメージを与える
-            // if(collision.CompareTag("Player"))
-            // {
-            //     Player player = collision.GetComponent<Player>();
-            //     if(player != null)
-            //     {
-            //         player.hp -= damageAmount;
-            //         if(disappearOnAttack)
-            //         {
-            //             Destroy(gameObject);
-            //         }
-            //     }
-            // }
+            // 敵の攻撃の場合、プレイヤーに当たったらダメージを与える
+            if(collision.CompareTag("Player"))
+            {
+                Player player = collision.GetComponent<Player>();
+                if(player != null)
+                {
+                    player.HP -= damageAmount;
+                    if(disappearOnAttack)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
         }
         else
         {
