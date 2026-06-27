@@ -20,3 +20,10 @@ MonoBehaviour:
     boss_speed: 10
     boss_attack_id: 0
     boss_skin: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
+  - boss_id: 0
+    boss_HP: 1000
+    boss_name: "\u30B9\u30A4\u30AB"
+    boss_attack: 10
+    boss_speed: 5
+    boss_attack_id: 1
+    boss_skin: {fileID: -1637325948196924773, guid: f55daa7bc1c7a964099514e5922c56fb, type: 3}
