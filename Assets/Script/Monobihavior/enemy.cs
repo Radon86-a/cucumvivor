@@ -69,6 +69,7 @@ public class enemy : MonoBehaviour
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
             Instantiate(deathParticle,transform.position,Quaternion.identity);
+            game_data.kill_enemy ++;
             Destroy(this.gameObject);
         }
     }
