@@ -1,11 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class monobehavesub : MonoBehaviour
-{
-    public Weapons[] weapons;
-
-}
 public class WeaponDisplay : MonoBehaviour
 {
     public weaponData weaponDatabase;   // ScriptableObject
