@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4188285748885683025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951029509895887348}
+  - component: {fileID: 6323192849701561407}
+  - component: {fileID: 2615352047192591376}
+  - component: {fileID: 6009554333130051100}
+  - component: {fileID: 888886313489127730}
+  - component: {fileID: 7202311780215136939}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951029509895887348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 276.5146, y: 690.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6323192849701561407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a913a002da2680442b8b7483965dead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HPBar
+  hpBar: {fileID: 0}
+  leftSpace: 10
+  rightSpace: 10
+  minWidth: 50
+  barY: -75
+  result: {fileID: 2615352047192591376}
+--- !u!114 &2615352047192591376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6968392b7deb4b4581f135d1bf9c38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Result
+  result: {fileID: 0}
+--- !u!114 &6009554333130051100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781dd2fcb69f22248ad7fb9e99b5131b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectUpgrade
+  weaponData: {fileID: 11400000, guid: ad1b81cdf3ff58746b783d35f9b3a627, type: 2}
+  selectUI: {fileID: 0}
+  selections1: {fileID: 0}
+  selections2: {fileID: 0}
+  selections3: {fileID: 0}
+--- !u!114 &888886313489127730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8d2e48696b7c14ebb3e09cd97857bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  holdWeapons:
+  - weapon_id: 0
+    weapon_name: 
+    weapon_attack: 0
+    weapon_attack_id: 0
+    weapon_detail: 
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 0}
+  - weapon_id: 0
+    weapon_name: 
+    weapon_attack: 0
+    weapon_attack_id: 0
+    weapon_detail: 
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 0}
+  - weapon_id: 0
+    weapon_name: 
+    weapon_attack: 0
+    weapon_attack_id: 0
+    weapon_detail: 
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 0}
+  - weapon_id: 0
+    weapon_name: 
+    weapon_attack: 0
+    weapon_attack_id: 0
+    weapon_detail: 
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 0}
+  - weapon_id: 0
+    weapon_name: 
+    weapon_attack: 0
+    weapon_attack_id: 0
+    weapon_detail: 
+    weapon_skin: {fileID: 0}
+    weapon_prefab: {fileID: 0}
+  slotObj:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levels: 0000000000000000000000000000000000000000
+  levelObj:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &7202311780215136939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188285748885683025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0836f72eaaadc8241aed02d8aa9f62ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::kaisijinitimescalewo1nisuru

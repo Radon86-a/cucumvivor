@@ -81,16 +81,13 @@ public class Attack : MonoBehaviour
             {
                 if(nowtime - lastAttackTime < cooltime)
                 {
-                    print("Attack is on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
                     return;
                 }
-                print("Attack is not on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
                 lastAttackTime = nowtime;
                 Player player = collision.GetComponent<Player>();
                 if(player != null)
                 {
                     player.HP -= damageAmount;
-                    print("Player HP after attack: " + player.HP + " (Damage dealt: " + damageAmount + ")");
                     if(disappearOnAttack)
                     {
                         Destroy(gameObject);
@@ -105,16 +102,13 @@ public class Attack : MonoBehaviour
             {
                 if(nowtime - lastAttackTime < cooltime)
                 {
-                    print("Attack is on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
                     return;
                 }
-                print("Attack is not on cooldown. Time since last attack: " + (nowtime - lastAttackTime) + " seconds.");
                 lastAttackTime = nowtime;
                 enemy enemy = collision.GetComponent<enemy>();
                 if(enemy != null)
                 {
                     enemy.my_HP -= damageAmount;
-                    print("Enemy HP after attack: " + enemy.my_HP + " (Damage dealt: " + damageAmount + ")");
                     if(disappearOnAttack)
                     {
                         Destroy(gameObject);
