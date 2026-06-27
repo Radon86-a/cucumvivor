@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public GameObject exp;
     public enemyData enemy_data;
     public gameData game_data;
@@ -26,7 +26,7 @@ public class enemy : MonoBehaviour
     {
         if(my_attack_id == 0)
         {
-            Vector3 direction = player.position - transform.position;
+            Vector3 direction = player.transform.position - transform.position;
             direction.z = 0f;
             Vector3 normalizedDirection = direction.normalized;
             transform.position += normalizedDirection * my_speed * Time.deltaTime;
