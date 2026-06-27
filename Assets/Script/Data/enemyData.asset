@@ -24,7 +24,7 @@ MonoBehaviour:
     enemy_HP: 30
     emeny_name: "\u30CB\u30F3\u30B8\u30F3"
     enemy_attack: 5
-    enemy_speed: 3
+    enemy_speed: 2
     enemy_attack_id: 0
     enemy_skin: {fileID: -2076128621432068708, guid: 3a9537110e65a1b4a93947ab166aeec1, type: 3}
   - enemy_id: 2
