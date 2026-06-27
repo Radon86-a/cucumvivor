@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
     void Start()
     {
         dp = GetComponent<DamagePopup>();
-        dp.ImMaster = true;
+        if(dp!=null)dp.ImMaster = true;
     }
 
 
