@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
@@ -33,7 +34,10 @@ public class Player : MonoBehaviour
     public GameObject UIManager;
     public Weapon weaponUI;
 
+    
+    PlayerInputActions _playerMoveInput;
 
+    private Vector2 moveVector,moveVector2;
 
     void Start()
     {
@@ -43,7 +47,18 @@ public class Player : MonoBehaviour
         speed = playerData.pleyer_speed;
         attack_cooltime = playerData.pleyer_attack_cooltime;
         rb = GetComponent<Rigidbody2D>();
+        weapons[0] = weapon_data.weapons[0]; // 初期装備の設定
         weaponUI.SetAll();
+        _playerMoveInput = new PlayerInputActions();
+        _playerMoveInput.Player.Move.performed += OnInputMove;
+        _playerMoveInput.Player.Move.canceled += OnInputMove;
+        _playerMoveInput.Player.Move.started += OnInputMove;
+        _playerMoveInput.Player.Enable();
+    }
+
+    private void OnInputMove(InputAction.CallbackContext context)
+    {
+        moveVector = context.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
@@ -55,15 +70,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
+        moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
     }
 
     //プレイヤーの移動
     void Move()
     {
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-        rb.MovePosition(rb.position + new Vector2(moveX, moveY) * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + moveVector2 * speed * Time.deltaTime);
 
     }
 
