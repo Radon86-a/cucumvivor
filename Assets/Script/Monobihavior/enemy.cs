@@ -27,8 +27,6 @@ public class enemy : MonoBehaviour
         myRenderer.sprite = enemy_data.enemies[my_id].enemy_skin;
         //接触ダメージの設定
         GetComponent<Attack>().damageAmount = my_attack;
-        
-
     }
 
     // Update is called once per frame
