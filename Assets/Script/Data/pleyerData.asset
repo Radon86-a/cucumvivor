@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8ded5695b2bed41b4a2e31f17a37f4, type: 3}
+  m_Name: pleyerData
+  m_EditorClassIdentifier: Assembly-CSharp::pleyerData
+  pleyer_max_HP: 0
+  pleyer_attack: 0
+  pleyer_speed: 0
+  pleyer_attack_cooltime: 0
