@@ -10,6 +10,7 @@ public class Enemymanager : MonoBehaviour
     public GameObject game_player;
     public GameObject Enemy_bullet;
     public GameObject boss_prefab;
+    public AudioClip boss_SE;
     //カメラの取得
     public CameraAction cameraAction;
     public long until_boss = 60;
@@ -66,6 +67,7 @@ public class Enemymanager : MonoBehaviour
             {
                 game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
+                AudioManager.Instance.PlaySoundOneShot(boss_SE);
             }
         break;
         case 1:
@@ -90,6 +92,7 @@ public class Enemymanager : MonoBehaviour
             {
                 game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
+                AudioManager.Instance.PlaySoundOneShot(boss_SE);
             }
         break;
         case 2:
@@ -114,6 +117,7 @@ public class Enemymanager : MonoBehaviour
             {
                 game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
+                AudioManager.Instance.PlaySoundOneShot(boss_SE);
             }
         break;
         case 3:
@@ -157,6 +161,7 @@ public class Enemymanager : MonoBehaviour
             {
                 game_data.is_boss = true;
                 MakeBoss(new Vector3(8, 0, 0));
+                AudioManager.Instance.PlaySoundOneShot(boss_SE);
             }
         break;
         default: break;

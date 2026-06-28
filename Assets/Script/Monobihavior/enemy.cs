@@ -22,8 +22,8 @@ public class enemy : MonoBehaviour
     void Start()
     {
         //初期値の取得
-        my_HP = (game_data.gamephase + 1) * enemy_data.enemies[my_id].enemy_HP;
-        my_attack = (game_data.gamephase + 1) * enemy_data.enemies[my_id].enemy_attack;
+        my_HP = (game_data.gamephase + 1) * (game_data.gamephase + 1) * enemy_data.enemies[my_id].enemy_HP;
+        my_attack = (game_data.gamephase + 1) * (game_data.gamephase + 1) * enemy_data.enemies[my_id].enemy_attack;
         my_attack_id = enemy_data.enemies[my_id].enemy_attack_id;
         my_speed = enemy_data.enemies[my_id].enemy_speed;
         myRenderer = GetComponent<SpriteRenderer>();

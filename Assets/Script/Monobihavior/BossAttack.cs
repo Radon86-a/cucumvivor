@@ -21,10 +21,6 @@ public class BossAttack : MonoBehaviour
     void Update()
     {
         transform.position += normalizedDirection * bullet_speed * Time.deltaTime;
-        if(game_data.is_boss == false)
-        {
-            Destroy (this.gameObject);
-        }
         if(transform.position.x < -10 || transform.position.x > 10)
         {
             Destroy (this.gameObject);

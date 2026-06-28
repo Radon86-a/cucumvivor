@@ -22,8 +22,8 @@ public class Boss : MonoBehaviour
     void Start()
     {
         boss_id = game_data.now_boss_id;
-        boss_my_HP = boss_data.bosses[boss_id].boss_HP * (game_data.gamephase + 1) * (game_data.gamephase + 1);
-        boss_my_attack = boss_data.bosses[boss_id].boss_attack * (game_data.gamephase + 1) * (game_data.gamephase + 1);
+        boss_my_HP = boss_data.bosses[boss_id].boss_HP * (game_data.gamephase + 1) * (game_data.gamephase + 1) * (game_data.gamephase + 1);
+        boss_my_attack = boss_data.bosses[boss_id].boss_attack * (game_data.gamephase + 1) * (game_data.gamephase + 1) * (game_data.gamephase + 1);
         boss_my_speed = boss_data.bosses[boss_id].boss_speed;
         myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sprite = boss_data.bosses[boss_id].boss_skin;

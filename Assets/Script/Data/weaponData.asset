@@ -106,7 +106,7 @@ MonoBehaviour:
   - use_as_item: 0
     weapon_id: 10
     weapon_name: "\u6226\u8266\u304D\u3085\u3046\u308A"
-    weapon_attack: 3
+    weapon_attack: 1
     weapon_attack_id: 0
     weapon_detail: "\u304D\u3085\u3046\u308A\u306E\u7832\u53F0\u3092\u6DFB\u3048\u3066"
     weapon_attack_freq: 1
