@@ -86,7 +86,6 @@ public class SelectUpgrade : MonoBehaviour
 | 11  | 柑橘きゅうり     | 0,2  | ×1.2   | 栄養満点！          | 未   |
 |     |                  |      |        |                     |      |
     */
-    /*
     public void SendSelectedWeaponData(Weapons selectedWeapon)
     {
         if (selectedWeapon.use_as_item)
@@ -180,6 +179,5 @@ public class SelectUpgrade : MonoBehaviour
         }
         weaponUI.SetAll();
     }
-    */
 
 }

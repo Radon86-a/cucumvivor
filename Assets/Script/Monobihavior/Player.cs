@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
         //画面外に行ったら戻す
     }
 
-    /*
     void playerAttack()
     {
         Transform parent = this.transform;
@@ -266,7 +265,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-    */
 
 
 	//EXPを拾う
