@@ -5518,6 +5518,7 @@ MonoBehaviour:
   cooltime: 0
   disappearOnAttack: 0
   damaged_SE: {fileID: 0}
+  attack_SE: {fileID: 0}
   dp: {fileID: 0}
 --- !u!212 &1385521604
 SpriteRenderer:
