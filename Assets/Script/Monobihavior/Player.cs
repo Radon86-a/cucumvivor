@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
                     break;
                 case 2:
                     //時間が経過していたら実行
-                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
+                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / weapons[i].weapon_attack_freq)
                     {
                         return;
                     }
@@ -235,11 +235,11 @@ public class Player : MonoBehaviour
                     newbullet.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
 
                     //右方向に加速度を与える
-                    newbullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                    newbullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f) * weapons[i].weapon_attack_speed;
                     break;
                 case 3:
                     //近距離の敵に自動で照準
-                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
+                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / weapons[i].weapon_attack_freq)
                     {
                         return;
                     }
@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
 
                     //右方向に加速度を与える
                     Collider2D[] hitColliders2 = Physics2D.OverlapCircleAll(parent.position, 2f);
-                    newbullet2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                    newbullet2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f) * weapons[i].weapon_attack_speed;
                     foreach (var hitCollider in hitColliders2)
                     {
 
