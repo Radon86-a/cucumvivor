@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
 public class Player : MonoBehaviour
 {
     [Header("=== ステータス ===")]
@@ -162,7 +163,7 @@ public class Player : MonoBehaviour
                             weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                             weapon_objects[i].obj[j].SetActive(true);
                             float radius = 1.0f; // 回転半径
-                            float speed = 2.0f; // 回転速度
+                            float speed = 2.0f * weapons[i].weapon_attack_speed; // 回転速度
                             float angle = nowtime * speed + j * (2 * (3.141592653589f)) / (weapon_levels[i]); // 現在の角度
                             Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
                             weapon_objects[i].obj[j].transform.position = parent.position + offset;
@@ -224,12 +225,12 @@ public class Player : MonoBehaviour
                     break;
                 case 2:
                     //時間が経過していたら実行
-                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / weapons[i].weapon_attack_freq)
+                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / (weapons[i].weapon_attack_freq * attack_freq))
                     {
                         return;
                     }
                     weapon_lastAttackTimes[i] = nowtime;
-                    var newbullet = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
+                    var newbullet = Instantiate(weapons[i].weapon_prefab, this.transform.position + new UnityEngine.Vector3(0, Random.Range(-.2f, .2f), 0), Quaternion.identity);
                     SpriteRenderer targetRenderer = newbullet.GetComponent<SpriteRenderer>();
                     targetRenderer.sprite = weapons[i].weapon_skin;
                     newbullet.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
@@ -239,11 +240,12 @@ public class Player : MonoBehaviour
                     break;
                 case 3:
                     //近距離の敵に自動で照準
-                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / weapons[i].weapon_attack_freq)
+                    if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / (weapons[i].weapon_attack_freq * attack_freq))
                     {
                         return;
                     }
                     weapon_lastAttackTimes[i] = nowtime;
+                    //y座標は少しランダムに
                     var newbullet2 = Instantiate(weapons[i].weapon_prefab, this.transform.position, Quaternion.identity);
                     SpriteRenderer targetRenderer3 = newbullet2.GetComponent<SpriteRenderer>();
                     targetRenderer3.sprite = weapons[i].weapon_skin;
@@ -279,9 +281,10 @@ public class Player : MonoBehaviour
         {
             AudioManager.Instance.PlaySoundOneShot(get_SE);
             player_exp += other.gameObject.GetComponent<expItem>().exp_amount;
-            if (player_exp >= player_level * 5)
+
+            if (player_exp >= (long)Mathf.Sqrt(player_level) * 5)
             {
-                player_exp -= player_level * 5;
+                player_exp -= (long)Mathf.Sqrt(player_level) * 5;
                 player_level++;
                 //レベルアップ時の処理
                 //ここでUIを呼ぶ

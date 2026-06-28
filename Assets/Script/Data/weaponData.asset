@@ -19,7 +19,7 @@ MonoBehaviour:
     weapon_attack: 10
     weapon_attack_id: 2
     weapon_detail: "\u5BD2\u5929\u3067\u3067\u304D\u305F\u304D\u3085\u3046\u308A\u3092\u98DB\u3070\u3059"
-    weapon_attack_freq: 1
+    weapon_attack_freq: 1.2
     weapon_attack_speed: 1
     weapon_skin: {fileID: -1709321161768747702, guid: d9788246a255da944a86376e0c24b75e, type: 3}
     weapon_prefab: {fileID: 9181982876923166872, guid: 367c195d443b404439dc0fb934168384, type: 3}
@@ -29,8 +29,8 @@ MonoBehaviour:
     weapon_attack: 5
     weapon_attack_id: 3
     weapon_detail: "\u304D\u3085\u3046\u308A\u3067\u3067\u304D\u305F\u5F13"
-    weapon_attack_freq: 1
-    weapon_attack_speed: 1
+    weapon_attack_freq: 1.3
+    weapon_attack_speed: 1.3
     weapon_skin: {fileID: 5163873593448304915, guid: e81a75a1d239c63488706a79ec1bd8eb, type: 3}
     weapon_prefab: {fileID: 7955360524136087845, guid: b05302a61cf00f746a2b783c5b644ef7, type: 3}
   - use_as_item: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     weapon_attack: 3
     weapon_attack_id: 0
     weapon_detail: "\u304A\u7078\u3092\u304D\u3085\u3046\u308A\u3067\u636E\u3048\u307E\u3059"
-    weapon_attack_freq: 1
+    weapon_attack_freq: 1.1
     weapon_attack_speed: 1
     weapon_skin: {fileID: -8076895414346313718, guid: 9279151879e691c4c9820d36c81d8b96, type: 3}
     weapon_prefab: {fileID: 6000942309586652436, guid: f8f186d34433afa40a7fb5dcb3b75050, type: 3}
@@ -49,8 +49,8 @@ MonoBehaviour:
     weapon_attack: 3
     weapon_attack_id: 3
     weapon_detail: "\u3044\u3064\u304B\u5E30\u3063\u3066\u6765\u308B"
-    weapon_attack_freq: 1
-    weapon_attack_speed: 1
+    weapon_attack_freq: 0.7
+    weapon_attack_speed: 1.3
     weapon_skin: {fileID: -2191183955624249123, guid: 5f4ef9832de23914cac952ed32f1d587, type: 3}
     weapon_prefab: {fileID: 7955360524136087845, guid: b05302a61cf00f746a2b783c5b644ef7, type: 3}
   - use_as_item: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     weapon_attack: 3
     weapon_attack_id: 2
     weapon_detail: "\u4E5D\u5DDE\u80B2\u3061\uFF01"
-    weapon_attack_freq: 1
+    weapon_attack_freq: 2
     weapon_attack_speed: 1
     weapon_skin: {fileID: -1346115156436188737, guid: bda3b93e2c8face44a1ed3dcdbcfef27, type: 3}
     weapon_prefab: {fileID: 9181982876923166872, guid: 367c195d443b404439dc0fb934168384, type: 3}
@@ -80,7 +80,7 @@ MonoBehaviour:
     weapon_attack_id: 2
     weapon_detail: "\u95A2\u6771\u80B2\u3061\uFF01"
     weapon_attack_freq: 1
-    weapon_attack_speed: 1
+    weapon_attack_speed: 2
     weapon_skin: {fileID: -1346115156436188737, guid: bda3b93e2c8face44a1ed3dcdbcfef27, type: 3}
     weapon_prefab: {fileID: 9181982876923166872, guid: 367c195d443b404439dc0fb934168384, type: 3}
   - use_as_item: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
     weapon_attack_id: 2
     weapon_detail: "\u30AB\u30F3\u30DC\u30B8\u30A2\u80B2\u3061\uFF01"
     weapon_attack_freq: 1
-    weapon_attack_speed: 1
+    weapon_attack_speed: 1.5
     weapon_skin: {fileID: -1346115156436188737, guid: bda3b93e2c8face44a1ed3dcdbcfef27, type: 3}
     weapon_prefab: {fileID: 9181982876923166872, guid: 367c195d443b404439dc0fb934168384, type: 3}
   - use_as_item: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
     weapon_attack: 1
     weapon_attack_id: 1
     weapon_detail: "\u4F55\u306E\u5909\u54F2\u3082\u306A\u3044\u3002\u539F\u70B9\u306B\u3057\u3066\u9802\u70B9"
-    weapon_attack_freq: 1
+    weapon_attack_freq: 1.4
     weapon_attack_speed: 1
     weapon_skin: {fileID: -1346115156436188737, guid: bda3b93e2c8face44a1ed3dcdbcfef27, type: 3}
     weapon_prefab: {fileID: 7955360524136087845, guid: b05302a61cf00f746a2b783c5b644ef7, type: 3}
@@ -119,7 +119,7 @@ MonoBehaviour:
     weapon_attack: 2
     weapon_attack_id: 3
     weapon_detail: "\u7C21\u5358\u304D\u3085\u3046\u308A"
-    weapon_attack_freq: 1
+    weapon_attack_freq: 1.3
     weapon_attack_speed: 1
     weapon_skin: {fileID: 590258026711378333, guid: 2fe188c96c142ad4bbc056dc7dbfa89a, type: 3}
     weapon_prefab: {fileID: 7955360524136087845, guid: b05302a61cf00f746a2b783c5b644ef7, type: 3}
