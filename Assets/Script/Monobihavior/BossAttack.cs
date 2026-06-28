@@ -3,7 +3,7 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour
 {
     public gameData game_data;
-    public long bullet_speed = 3;
+    public long bullet_speed = 4;
     public GameObject game_player;
     public Vector3 now_palyer_position;
     public Vector3 normalizedDirection;
