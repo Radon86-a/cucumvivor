@@ -87,7 +87,7 @@ MonoBehaviour:
     weapon_id: 8
     weapon_name: "\u305F\u307E"
     weapon_attack: 50
-    weapon_attack_id: 2
+    weapon_attack_id: 1
     weapon_detail: "\u30AB\u30F3\u30DC\u30B8\u30A2\u80B2\u3061\uFF01"
     weapon_attack_freq: 1
     weapon_attack_speed: 1.5
@@ -97,7 +97,7 @@ MonoBehaviour:
     weapon_id: 9
     weapon_name: "\u304D\u3085\u3046\u308A"
     weapon_attack: 1
-    weapon_attack_id: 1
+    weapon_attack_id: 2
     weapon_detail: "\u4F55\u306E\u5909\u54F2\u3082\u306A\u3044\u3002\u539F\u70B9\u306B\u3057\u3066\u9802\u70B9"
     weapon_attack_freq: 1.4
     weapon_attack_speed: 1
