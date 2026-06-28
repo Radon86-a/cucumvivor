@@ -6533,7 +6533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: weapons.Array.data[0].weapon_id
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 111176499591476686, guid: 20df09adfe883394fa3e0053a2cf835c, type: 3}
       propertyPath: weapons.Array.data[1].weapon_id

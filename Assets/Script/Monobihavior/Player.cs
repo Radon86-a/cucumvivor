@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         speed = playerData.pleyer_speed;
         attack_freq = playerData.pleyer_attack_freq;
         rb = GetComponent<Rigidbody2D>();
-        weapons[0] = weapon_data.weapons[0]; // 初期装備の設定
+        weapons[0] = weapon_data.weapons[8]; // 初期装備の設定
         weaponUI.SetAll();
         _playerMoveInput = new PlayerInputActions();
         _playerMoveInput.Player.Move.performed += OnInputMove;
