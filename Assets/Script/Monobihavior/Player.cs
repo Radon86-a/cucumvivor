@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         attackText.text = "atk:" + attack;
-        speedText.text = "spe:" + speed;
+        speedText.text = "speed:" + speed;
         hpBar.SetHP(HP, playerData.pleyer_max_HP);
         moveVector2 = Vector2.MoveTowards(moveVector2, moveVector, Time.deltaTime * 10f);
         //-9~9,-5~5に移動を制限
