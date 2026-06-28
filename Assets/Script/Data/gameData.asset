@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: gameData
   m_EditorClassIdentifier: Assembly-CSharp::gameData
   gamephase: 0
+  now_boss_id: 3
+  game_time: 4.3500586
+  phase_time: 502.5939
+  kill_enemy: 8
+  is_boss: 1
+  score: 80
+  is_gaming: 0
