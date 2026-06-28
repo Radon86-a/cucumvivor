@@ -28,7 +28,7 @@ public class CameraAction : MonoBehaviour
 
             camera.transform.localPosition = new Vector3(x, y, -10);
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 
