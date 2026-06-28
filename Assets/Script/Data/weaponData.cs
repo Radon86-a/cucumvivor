@@ -9,11 +9,7 @@ public class weaponData : ScriptableObject
 [System.Serializable]
 public struct Weapons
 {
-    public bool use_as_item;
-    public long weapon_id;
     public string weapon_name;
-    public long weapon_attack;
-    public long weapon_attack_id;
     public string weapon_detail;
     public Sprite weapon_skin;
     public GameObject weapon_prefab;
