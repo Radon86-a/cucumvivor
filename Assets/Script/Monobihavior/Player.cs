@@ -151,7 +151,6 @@ void playerAttack()
     weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
     weapon_objects[i].obj[j].SetActive(true);
     float radius = 1.0f; // 回転半径
-                            float speed = 2.0f; // 回転速度
                             float speed = 2.0f * weapons[i].weapon_attack_speed; // 回転速度
     float angle = nowtime * speed + j*(2*(3.141592653589f))/(weapon_levels[i]); // 現在の角度
     Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
