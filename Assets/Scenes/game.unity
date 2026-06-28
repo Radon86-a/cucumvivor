@@ -3894,6 +3894,10 @@ PrefabInstance:
       value: EnemyManager
       objectReference: {fileID: 0}
     - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
+      propertyPath: boss_SE
+      value: 
+      objectReference: {fileID: 8300000, guid: 39ae2c675d3df1b45bc11d461cfb854d, type: 3}
+    - target: {fileID: 7022981443455780341, guid: e55b245cd3048b842befa05ac45c7529, type: 3}
       propertyPath: boss_data
       value: 
       objectReference: {fileID: 11400000, guid: e8520c443c71a4c4c98c11fb59352f07, type: 2}
@@ -7697,7 +7701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bd73d8e44754e44aa5c5177645e1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
-  click_SE: {fileID: 0}
+  click_SE: {fileID: 8300000, guid: a2c7dcecc2b79884ea9168737cb6aecc, type: 3}
 --- !u!4 &1853334960
 Transform:
   m_ObjectHideFlags: 0
