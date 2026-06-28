@@ -4541,7 +4541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   audioSource: {fileID: 957400403}
-  BGM1: {fileID: 8300000, guid: 7eed39f855919194ca4d0616394e425f, type: 3}
+  BGM1: {fileID: 8300000, guid: c80d4147dbd86c949adfce4926d25476, type: 3}
   SE1: {fileID: 8300000, guid: a2c7dcecc2b79884ea9168737cb6aecc, type: 3}
   SE2: {fileID: 8300000, guid: 3a362cd3119c7e14c80ae72458e7ded8, type: 3}
 --- !u!4 &957400405
