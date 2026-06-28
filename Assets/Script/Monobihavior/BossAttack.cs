@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
-    public long bullet_speed = 3;
+    public gameData game_data;
+    public long bullet_speed = 4;
     public GameObject game_player;
     public Vector3 now_palyer_position;
     public Vector3 normalizedDirection;
@@ -20,6 +21,10 @@ public class BossAttack : MonoBehaviour
     void Update()
     {
         transform.position += normalizedDirection * bullet_speed * Time.deltaTime;
+        if(game_data.is_boss == false)
+        {
+            Destroy (this.gameObject);
+        }
         if(transform.position.x < -10 || transform.position.x > 10)
         {
             Destroy (this.gameObject);
