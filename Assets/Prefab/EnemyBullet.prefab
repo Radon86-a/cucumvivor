@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6583006987535818987, guid: 6146c9ef2c7280d42a7eb475694bfb42, type: 3}
+  m_Sprite: {fileID: 5545226726288853583, guid: d848845498375d94d861d62ed1480f0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,6 +130,7 @@ MonoBehaviour:
   cooltime: 0
   disappearOnAttack: 1
   damaged_SE: {fileID: 8300000, guid: d3e02864dabc39745b18b64ad1dcb35b, type: 3}
+  attack_SE: {fileID: 0}
   dp: {fileID: 0}
 --- !u!58 &-9139192977801741218
 CircleCollider2D:
