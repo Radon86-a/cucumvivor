@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4789921742019488708}
   - component: {fileID: -823110283367113771}
   - component: {fileID: -9069446901834360212}
+  - component: {fileID: 3453293384458516674}
   m_Layer: 0
   m_Name: WaterMelonAttack
   m_TagString: Untagged
@@ -113,6 +114,7 @@ MonoBehaviour:
   cooltime: 0
   disappearOnAttack: 1
   damaged_SE: {fileID: 8300000, guid: d3e02864dabc39745b18b64ad1dcb35b, type: 3}
+  attack_SE: {fileID: 0}
   dp: {fileID: 0}
 --- !u!114 &-9069446901834360212
 MonoBehaviour:
@@ -130,3 +132,39 @@ MonoBehaviour:
   game_player: {fileID: 0}
   now_palyer_position: {x: 0, y: 0, z: 0}
   normalizedDirection: {x: 0, y: 0, z: 0}
+--- !u!58 &3453293384458516674
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533887312970052570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.25
