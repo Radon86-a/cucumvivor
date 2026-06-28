@@ -15,7 +15,7 @@ public class expItem : MonoBehaviour
     {
         
         Vector3 direction = player.transform.position - transform.position;
-        if(direction.x * direction.x + direction.y * direction.y < 1.8)
+        if(direction.x * direction.x + direction.y * direction.y < 2.5)
         {
         direction.z = 0f;
         Vector3 normalizedDirection = direction.normalized;
