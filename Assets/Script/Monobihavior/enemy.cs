@@ -67,7 +67,7 @@ public class enemy : MonoBehaviour
 
         if(game_data.is_boss == true)
         {
-            my_HP = 0;
+            Destroy(this.gameObject);
         }
         if (my_HP <= 0)
         {
