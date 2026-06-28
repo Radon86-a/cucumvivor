@@ -26,6 +26,25 @@ public class SelectUpgrade : MonoBehaviour
     void Start()
     {
         selectUI.SetActive(false);
+        {
+            selectRandomWep();
+            // SetSelections(selections);
+            AudioManager.Instance.PlaySoundOneShot(hyoji_SE);
+            selectUI.SetActive(true);
+            SetAllSelection();
+            SetAllBG();
+            Time.timeScale = 0f;
+        }
+    }
+    private void selectRandomWep()
+    {
+        List<Weapons> weaponList = new List<Weapons>(weaponData.weapons);
+        for (int i = 0; i < selections.Length; i++)
+        {
+            int randomIndex = Random.Range(0, 10);
+            selections[i] = weaponList[randomIndex];
+            weaponList.RemoveAt(randomIndex);
+        }
     }
     private void selectionRandom()
     {
