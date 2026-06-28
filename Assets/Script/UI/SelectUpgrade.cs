@@ -50,18 +50,18 @@ public class SelectUpgrade : MonoBehaviour
         SetAllBG();
         Time.timeScale = 0f;
     }
-    private void SetEachSelection(Weapons weapon,Selection selection)
+    private void SetEachSelection(Weapons weapon, Selection selection)
     {
         selection.selectionWeapon = weapon;
         selection.SetPalameter();
     }
     private void SetAllSelection()
     {
-        SetEachSelection(selections[0],selections1);
-        SetEachSelection(selections[1],selections2);
-        SetEachSelection(selections[2],selections3);
+        SetEachSelection(selections[0], selections1);
+        SetEachSelection(selections[1], selections2);
+        SetEachSelection(selections[2], selections3);
     }
-    private void SetEachBG(Weapons weapons,Image selecBG)
+    private void SetEachBG(Weapons weapons, Image selecBG)
     {
         if (weapons.use_as_item)
         {
@@ -74,12 +74,12 @@ public class SelectUpgrade : MonoBehaviour
     }
     private void SetAllBG()
     {
-        SetEachBG(selections[0],selecBGimage1);
-        SetEachBG(selections[1],selecBGimage2);
-        SetEachBG(selections[2],selecBGimage3);
+        SetEachBG(selections[0], selecBGimage1);
+        SetEachBG(selections[1], selecBGimage2);
+        SetEachBG(selections[2], selecBGimage3);
     }
 
-    
+
     public void Selected(int selectedID)
     {
         AudioManager.Instance.PlaySoundOneShot(decide_SE);
@@ -107,60 +107,61 @@ public class SelectUpgrade : MonoBehaviour
     */
     public void SendSelectedWeaponData(Weapons selectedWeapon)
     {
+        print("選択された武器id" + selectedWeapon.weapon_id + "名前" + selectedWeapon.weapon_name);
         if (selectedWeapon.use_as_item)
         {
             //アイテムとして使用する場合の処理
-            switch(selectedWeapon.weapon_id)
+            switch (selectedWeapon.weapon_id)
             {
                 case 13:
                     //きゅうりの冠
                     player.max_HP += 100;
-                break;
+                    break;
                 case 14:
                     //ぜんきゅうり
-                    player.max_HP = (long)(player.max_HP* 1.2f);
-                break;
+                    player.max_HP = (long)(player.max_HP * 1.2f);
+                    break;
                 case 15:
                     //杞憂り
                     player.speed += 2;
-                break;
+                    break;
                 case 16:
                     //緩急り
                     player.attack_freq *= 0.8f;
-                break;
+                    break;
                 case 17:
                     //きゅうり缶
                     player.HP += (long)(player.max_HP * 0.2f);
-                break;
+                    break;
                 case 18:
                     //救急救命きゅうり
                     player.HP += (long)(player.max_HP * 0.8f);
-                break;
+                    break;
                 case 19:
                     //きゅうりソード
                     player.attack = (long)(player.attack * 1.5f);
-                break;
+                    break;
                 case 20:
                     //精霊馬
                     player.speed *= 1.5f;
-                break;
+                    break;
                 case 21:
                     //きゅうりの漬物
                     player.attack += 20;
-                break;
+                    break;
                 case 22:
                     //きゅうリング
                     player.attack *= 2;
-                break;
+                    break;
                 case 23:
                     //柑橘きゅうり
                     player.max_HP = (long)(player.max_HP * 1.2f);
                     player.attack = (long)(player.attack * 1.2f);
-                break;
+                    break;
 
 
-                
-                
+
+
                 default:
                     print("未実装のアイテムです。");
                     break;
@@ -169,32 +170,32 @@ public class SelectUpgrade : MonoBehaviour
         }
         //選択された武器のデータをplayerの伝える関数
         //仮設置
-        print("選択された武器id"+selectedWeapon.weapon_id+"名前"+selectedWeapon.weapon_name);
+        print("選択された武器id" + selectedWeapon.weapon_id + "名前" + selectedWeapon.weapon_name);
         //playerに選択された武器のデータを送る処理
-        
+
         //まずすでにその武器を持っているか確認する
-        for(int i = 0; i < player.weapon_count; i++)
+        for (int i = 0; i < player.weapon_count; i++)
         {
-            if(player.weapons[i].weapon_id == selectedWeapon.weapon_id)
+            if (player.weapons[i].weapon_id == selectedWeapon.weapon_id)
             {
                 //すでに持っている場合はレベルを上げる
                 player.weapon_levels[i]++;
-                print("武器のレベルを上げました。現在のレベル"+player.weapon_levels[i]);
+                print("武器のレベルを上げました。現在のレベル" + player.weapon_levels[i]);
                 weaponUI.SetAll();
                 return;
             }
         }
         //持っていなかったら追加
-        if(player.weapon_count < player.weapons.Length)
+        if (player.weapon_count < player.weapons.Length)
         {
             player.weapons[player.weapon_count] = selectedWeapon;
             player.weapon_levels[player.weapon_count] = 1;
             player.weapon_count++;
-            print("武器を追加しました。現在の武器数"+player.weapon_count);
+            print("武器を追加しました。現在の武器数" + player.weapon_count);
         }
         else
         {
-            print("武器を追加できません。現在の武器数"+player.weapon_count);
+            print("武器を追加できません。現在の武器数" + player.weapon_count);
         }
         weaponUI.SetAll();
     }
