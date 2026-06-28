@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - EXP
+  - BOSS
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: explosion
+    uniqueID: 1033577857
     locked: 0
   m_RenderingLayers:
   - Default
