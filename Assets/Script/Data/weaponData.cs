@@ -15,6 +15,9 @@ public struct Weapons
     public long weapon_attack;
     public long weapon_attack_id;
     public string weapon_detail;
+    
+    public float weapon_attack_freq; //攻撃頻度
+    public float weapon_attack_speed; // 弾速
     public Sprite weapon_skin;
     public GameObject weapon_prefab;
 }
