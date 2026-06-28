@@ -10,6 +10,11 @@ public class SelectUpgrade : MonoBehaviour
     public Selection selections1;
     public Selection selections2;
     public Selection selections3;
+    public Image selecBGimage1;
+    public Image selecBGimage2;
+    public Image selecBGimage3;
+    public Sprite weaponBG;
+    public Sprite itemBG;
     private Weapons[] selections = new Weapons[3];
     private int selectedID = 0;
     [SerializeField]
@@ -42,6 +47,7 @@ public class SelectUpgrade : MonoBehaviour
         AudioManager.Instance.PlaySoundOneShot(hyoji_SE);
         selectUI.SetActive(true);
         SetAllSelection();
+        SetAllBG();
         Time.timeScale = 0f;
     }
     private void SetEachSelection(Weapons weapon,Selection selection)
@@ -54,6 +60,23 @@ public class SelectUpgrade : MonoBehaviour
         SetEachSelection(selections[0],selections1);
         SetEachSelection(selections[1],selections2);
         SetEachSelection(selections[2],selections3);
+    }
+    private void SetEachBG(Weapons weapons,Image selecBG)
+    {
+        if (weapons.use_as_item)
+        {
+            selecBG.sprite = itemBG;
+        }
+        else
+        {
+            selecBG.sprite = weaponBG;
+        }
+    }
+    private void SetAllBG()
+    {
+        SetEachBG(selections[0],selecBGimage1);
+        SetEachBG(selections[1],selecBGimage2);
+        SetEachBG(selections[2],selecBGimage3);
     }
 
     
