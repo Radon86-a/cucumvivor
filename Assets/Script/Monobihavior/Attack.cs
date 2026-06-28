@@ -2,10 +2,11 @@ using UnityEngine;
 using TMPro;
 public class Attack : MonoBehaviour
 {
+    public gameData game_data;
     //味方の攻撃か敵の攻撃か
-    
     public bool isEnemyAttack = false;
-
+    //カメラの取得
+    public CameraAction cameraAction;
     //ダメージ量
     public long damageAmount = 0;
     public float cooltime = 0.0f;
@@ -13,10 +14,15 @@ public class Attack : MonoBehaviour
     //ダメージのタイプ
     //攻撃時に消える/持続ダメージ
     public bool disappearOnAttack = true;
-
+    public AudioClip damaged_SE;
+    public AudioClip attack_SE;
     
     float nowtime = 0.0f;
     public DamagePopup dp;
+    public void shake()
+    {
+        cameraAction.Shake(0.2f, 0.2f);
+    }
     void Start()
     {
         dp = GetComponent<DamagePopup>();
@@ -42,6 +48,11 @@ public class Attack : MonoBehaviour
                 Player player = collision.GetComponent<Player>();
                 if(player != null)
                 {
+                    if(game_data.is_gaming == true)
+                    {
+                        shake();
+                        AudioManager.Instance.PlaySoundOneShot(damaged_SE);
+                    }
                     player.HP -= damageAmount;
                     if(disappearOnAttack)
                     {
@@ -63,8 +74,28 @@ public class Attack : MonoBehaviour
                 enemy enemy = collision.GetComponent<enemy>();
                 if(enemy != null)
                 {
+                    AudioManager.Instance.PlaySoundOneShot(attack_SE);
                     enemy.my_HP -= damageAmount;
                     if(dp!=null)dp.showDamage(damageAmount, enemy.transform.position);
+                    if(disappearOnAttack)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            if(collision.CompareTag("BOSS"))
+            {
+                if(nowtime - lastAttackTime < cooltime)
+                {
+                    return;
+                }
+                lastAttackTime = nowtime;
+                Boss boss = collision.GetComponent<Boss>();
+                if(boss != null)
+                {
+                    AudioManager.Instance.PlaySoundOneShot(attack_SE);
+                    boss.boss_my_HP -= damageAmount;
+                    if(dp!=null)dp.showDamage(damageAmount, boss.transform.position);
                     if(disappearOnAttack)
                     {
                         Destroy(gameObject);

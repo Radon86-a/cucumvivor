@@ -8,4 +8,7 @@ public class gameData : ScriptableObject
     public float game_time;
     public float phase_time;
     public long kill_enemy;
+    public bool is_boss;
+    public long score;
+    public bool is_gaming;
 }

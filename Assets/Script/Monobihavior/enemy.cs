@@ -8,6 +8,9 @@ public class enemy : MonoBehaviour
     public GameObject deathParticle;
     public enemyData enemy_data;
     public gameData game_data;
+    //カメラの取得
+    public CameraAction cameraAction;
+    public AudioClip killed_SE;
     public long my_id;
     public long my_HP;
     public long my_attack;
@@ -27,8 +30,7 @@ public class enemy : MonoBehaviour
         myRenderer.sprite = enemy_data.enemies[my_id].enemy_skin;
         //接触ダメージの設定
         GetComponent<Attack>().damageAmount = my_attack;
-        
-
+        GetComponent<Attack>().cameraAction = cameraAction;
     }
 
     // Update is called once per frame
@@ -56,20 +58,27 @@ public class enemy : MonoBehaviour
                 GameObject clonedObject = Instantiate(enemy_bullet, transform.position, Quaternion.identity);
                 EnemyAttack enemy_attack = clonedObject.GetComponent<EnemyAttack>();
                 Attack attack = clonedObject.GetComponent<Attack>();
+                attack.cameraAction = cameraAction;
                 attack.damageAmount = my_attack;
                 enemy_attack.game_player = player;
                 attack_cooltime = 2;
             }
         }
 
+        if(game_data.is_boss == true)
+        {
+            my_HP = 0;
+        }
         if (my_HP <= 0)
         {
             // 死亡時の処理
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 1;
+            exp_item.player = player;
             Instantiate(deathParticle,transform.position,Quaternion.identity);
             game_data.kill_enemy ++;
+            AudioManager.Instance.PlaySoundOneShot(killed_SE);
             Destroy(this.gameObject);
         }
     }

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Enemymanager : MonoBehaviour
@@ -9,17 +10,21 @@ public class Enemymanager : MonoBehaviour
     public GameObject game_player;
     public GameObject Enemy_bullet;
     public GameObject boss_prefab;
-    public bool is_boss;
-    public long until_boss = 90;
+    //カメラの取得
+    public CameraAction cameraAction;
+    public long until_boss = 60;
     public long on_boss;
     public float cooltime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        game_data.now_boss_id = UnityEngine.Random.Range(0, boss_data.bosses.Length);
+        game_data.is_gaming = true;
+        game_data.kill_enemy = 0;
+        game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
         game_data.game_time = 0f;
         game_data.phase_time = 0f;
-        is_boss = false;
+        game_data.gamephase = 0;
+        game_data.is_boss = false;
         switch(game_data.now_boss_id)
         {
         case 0:
@@ -41,6 +46,7 @@ public class Enemymanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        game_data.score = game_data.gamephase *100 + game_data.kill_enemy * 10;
         game_data.game_time += Time.deltaTime;
         game_data.phase_time += Time.deltaTime;
         cooltime -= Time.deltaTime;
@@ -48,7 +54,7 @@ public class Enemymanager : MonoBehaviour
         {
         case 0:
         //ダミーボスの場合の雑魚敵
-        if(cooltime < 0 && is_boss == false)
+        if(cooltime < 0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 3; i++)
             {
@@ -56,33 +62,102 @@ public class Enemymanager : MonoBehaviour
             }
             cooltime = 3.0f;
         }
-        if(game_data.phase_time > until_boss && is_boss == false)
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
             {
-                is_boss = true;
-                GameObject clonedObject = Instantiate(boss_prefab, new Vector3(8, 0, 0), Quaternion.identity);
-                Boss boss = clonedObject.GetComponent<Boss>();
-                boss.boss_id = game_data.now_boss_id;
-                boss.player = game_player;
+                game_data.is_boss = true;
+                MakeBoss(new Vector3(8, 0, 0));
             }
         break;
         case 1:
-        if(cooltime <0 && is_boss == false)
+        if(cooltime <0 && game_data.is_boss == false)
         {
             for(long i = 0; i < 2 ;i++)
             {
             MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase < 1)
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 1);
             }
-            if(game_data.phase_time > 60 && game_data.gamephase >= 1)
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
             {
             MakeEnemy(new Vector3(10, 0, 0), 4);
             MakeEnemy(new Vector3(-10, 0, 0), 1);
             }
             cooltime = 3;
         }
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
+            {
+                game_data.is_boss = true;
+                MakeBoss(new Vector3(8, 0, 0));
+            }
+        break;
+        case 2:
+        if(cooltime <0 && game_data.is_boss == false)
+        {
+            for(long i = 0; i < 2 ;i++)
+            {
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 2);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 1);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 4);
+            MakeEnemy(new Vector3(-10, 0, 0), 1);
+            }
+            cooltime = 3;
+        }
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
+            {
+                game_data.is_boss = true;
+                MakeBoss(new Vector3(8, 0, 0));
+            }
+        break;
+        case 3:
+        if(cooltime <0 && game_data.is_boss == false)
+        {
+            for(long i = 0; i < 2 ;i++)
+            {
+            MakeEnemy(new Vector3(10, 5 - 10 * i, 0), 1);
+            }
+            for(long i = 0; i < 2 ;i++)
+            {
+            MakeEnemy(new Vector3(5, 10 - 20 * i, 0), 1);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase < 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 3);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase >= 1)
+            {
+            MakeEnemy(new Vector3(10, 0, 0), 4);
+            MakeEnemy(new Vector3(-10, 0, 0), 1);
+            }
+            if(game_data.phase_time > 30 && game_data.gamephase >= 2)
+            {
+            MakeEnemy(new Vector3(-10, 5, 0), 2);
+            MakeEnemy(new Vector3(-10, -5, 0), 2);
+            }
+            if(game_data.gamephase < 1)
+            {
+                cooltime = 3;
+            }else if(game_data.gamephase == 1)
+            {
+                cooltime = 2.5f;
+            }else
+            {
+                cooltime = 2.0f;
+            }
+            
+        }
+        if(game_data.phase_time > until_boss && game_data.is_boss == false)
+            {
+                game_data.is_boss = true;
+                MakeBoss(new Vector3(8, 0, 0));
+            }
         break;
         default: break;
         }
@@ -96,5 +171,14 @@ public class Enemymanager : MonoBehaviour
         enemy_.my_id = id;
         enemy_.player = game_player;
         enemy_.enemy_bullet = Enemy_bullet;
+        enemy_.cameraAction = cameraAction;
+    }
+    void MakeBoss(Vector3 iti)
+    {
+        GameObject clonedObject = Instantiate(boss_prefab, iti, Quaternion.identity);
+        Boss boss = clonedObject.GetComponent<Boss>();
+        boss.boss_id = game_data.now_boss_id;
+        boss.player = game_player;
+        boss.cameraAction = cameraAction;
     }
 }

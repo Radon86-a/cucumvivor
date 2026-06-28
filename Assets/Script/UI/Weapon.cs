@@ -23,10 +23,12 @@ public class Weapon : MonoBehaviour
             if(i < player.weapon_count)
             {
                 slotObj[i].sprite = player.weapons[i].weapon_skin;
+                slotObj[i].color = new Color(slotObj[i].color.r,slotObj[i].color.g,slotObj[i].color.b,1f);
             }
             else
             {
                 slotObj[i].sprite = null;
+                slotObj[i].color = new Color(slotObj[i].color.r,slotObj[i].color.g,slotObj[i].color.b,0f);
             }
         }
     }

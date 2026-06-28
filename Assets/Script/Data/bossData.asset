@@ -23,7 +23,21 @@ MonoBehaviour:
   - boss_id: 1
     boss_HP: 1000
     boss_name: "\u30B9\u30A4\u30AB"
-    boss_attack: 10
+    boss_attack: 20
     boss_speed: 5
     boss_attack_id: 1
     boss_skin: {fileID: -1637325948196924773, guid: f55daa7bc1c7a964099514e5922c56fb, type: 3}
+  - boss_id: 2
+    boss_HP: 2000
+    boss_name: "\u304B\u307C\u3061\u3083"
+    boss_attack: 50
+    boss_speed: 5
+    boss_attack_id: 1
+    boss_skin: {fileID: -2865884563294590457, guid: 0af37115bdd65764fad1669b2a0b32a1, type: 3}
+  - boss_id: 3
+    boss_HP: 4000
+    boss_name: "\u306A\u3059\u306E\u725B"
+    boss_attack: 100
+    boss_speed: 1
+    boss_attack_id: 1
+    boss_skin: {fileID: 1465561243899183810, guid: ff98761046050324d8fa528d16fff564, type: 3}
