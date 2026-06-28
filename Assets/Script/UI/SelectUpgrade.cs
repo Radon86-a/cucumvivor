@@ -135,7 +135,7 @@ public class SelectUpgrade : MonoBehaviour
                     break;
                 case 16:
                     //緩急り
-                    player.attack_freq *= 2f;
+                    player.attack_freq *= 1.5f;
                     break;
                 case 17:
                     //きゅうり缶
