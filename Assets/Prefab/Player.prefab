@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5057404437195271840}
   - component: {fileID: 148055688985755991}
   - component: {fileID: 99320703863564200}
+  - component: {fileID: 1636086217213825747}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -111,76 +112,87 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 71d02ddb82daaa84da05a038ec5eb648, type: 2}
   HP: 10
   attack: 0
+  max_HP: 0
+  attack_freq: 0
   speed: 10
-  attack_cooltime: 0
   weapon_data: {fileID: 11400000, guid: ad1b81cdf3ff58746b783d35f9b3a627, type: 2}
   weapon_count: 1
   weapon_levels: 0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   weapons:
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
     weapon_detail: 
     weapon_skin: {fileID: 0}
     weapon_prefab: {fileID: 0}
-  - weapon_id: 0
+  - use_as_item: 0
+    weapon_id: 0
     weapon_name: 
     weapon_attack: 0
     weapon_attack_id: 0
@@ -192,6 +204,9 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   UIManager: {fileID: 0}
   weaponUI: {fileID: 0}
+  attackText: {fileID: 0}
+  speedText: {fileID: 0}
+  get_SE: {fileID: 0}
 --- !u!50 &5057404437195271840
 Rigidbody2D:
   serializedVersion: 5
@@ -277,3 +292,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1636086217213825747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227384796372686644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2594375b65036b4688e2b37a3123b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::weaponsLoadScript

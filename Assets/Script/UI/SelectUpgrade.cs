@@ -58,9 +58,14 @@ public class SelectUpgrade : MonoBehaviour
     public void Selected(int selectedID)
     {
         AudioManager.Instance.PlaySoundOneShot(decide_SE);
-        SendSelectedWeaponData(selections[selectedID]);
+        //SendSelectedWeaponData(selections[selectedID]);
         selectUI.SetActive(false);
         Time.timeScale = 1f;
+    }
+    public void SendSelectedWeaponToLoad(Weapons weapons)
+    {
+        //weapon選ばれたら実行
+        this.GetComponent<weaponsLoadScript>().SelectedWeaponLoad(weapons);
     }
     
     /*

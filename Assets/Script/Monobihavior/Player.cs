@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
     {
 		nowtime += Time.deltaTime * attack_freq;
         Move();
-        playerAttack();
+        //playerAttack();
     }
     void Update()
     {
