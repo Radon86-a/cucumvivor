@@ -115,6 +115,7 @@ public class Boss : MonoBehaviour
             GameObject clonedObject = Instantiate(exp, transform.position, Quaternion.identity);
             expItem exp_item = clonedObject.GetComponent<expItem>();
             exp_item.exp_amount = 10 * game_data.gamephase;
+            exp_item.player = player;
             game_data.gamephase ++;
             game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
             game_data.phase_time = 0f;
