@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
 
     void playerAttack()
     {
+        print("nowtime" + nowtime);
         Transform parent = this.transform;
         // attack_timer += Time.deltaTime * attack_cooltime;
         // if(attack_timer < 1.0f)
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour
                             Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
                             weapon_objects[i].obj[j].transform.position = parent.position + offset;
                         }
+                        print("まわるやつ" + nowtime);
                         //Parentの周りを円形に回転
                     }
                     break;
@@ -227,7 +229,7 @@ public class Player : MonoBehaviour
                     //時間が経過していたら実行
                     if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / (weapons[i].weapon_attack_freq * attack_freq))
                     {
-                        return;
+                        continue;
                     }
                     weapon_lastAttackTimes[i] = nowtime;
                     var newbullet = Instantiate(weapons[i].weapon_prefab, this.transform.position + new UnityEngine.Vector3(0, Random.Range(-.2f, .2f), 0), Quaternion.identity);
@@ -236,13 +238,19 @@ public class Player : MonoBehaviour
                     newbullet.GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
 
                     //右方向に加速度を与える
-                    newbullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f) * weapons[i].weapon_attack_speed;
+                    float spread = 5f; // 最大ブレ角
+                    float angle2 = Random.Range(-spread, spread);
+
+                    Vector2 dir2 = Quaternion.Euler(0, 0, angle2) * Vector2.right;
+
+                    newbullet.GetComponent<Rigidbody2D>().linearVelocity =
+                        dir2 * 5f * weapons[i].weapon_attack_speed;
                     break;
                 case 3:
                     //近距離の敵に自動で照準
                     if (nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i] / (weapons[i].weapon_attack_freq * attack_freq))
                     {
-                        return;
+                        continue;
                     }
                     weapon_lastAttackTimes[i] = nowtime;
                     //y座標は少しランダムに
