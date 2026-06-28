@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
     public GameObject watermelon_bullet;
     public bossData boss_data;
     public gameData game_data;
+    public　GameObject deathparticle;
     //カメラの取得
     public CameraAction cameraAction;
     public long boss_id;
@@ -151,6 +152,7 @@ public class Boss : MonoBehaviour
             game_data.now_boss_id = UnityEngine.Random.Range(1, boss_data.bosses.Length);
             game_data.phase_time = 0f;
             game_data.is_boss = false;
+            Instantiate(deathparticle,transform.position,Quaternion.identity);
             Destroy (this.gameObject);
         }
     }
