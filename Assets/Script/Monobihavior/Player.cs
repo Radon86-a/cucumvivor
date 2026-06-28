@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
     private void OnInputMove(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
+
     }
 
     void FixedUpdate()
@@ -78,6 +79,12 @@ public class Player : MonoBehaviour
         nowtime += Time.deltaTime * attack_freq;
         Move();
         playerAttack();
+        //もしマウスのクリック（スマホのタップ）があったら、クリックした位置に向かって移動する
+        if (Mouse.current.leftButton.isPressed)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            moveVector = (mousePos - transform.position).normalized;
+        }
     }
     void Update()
     {
