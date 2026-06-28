@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
                         weapon_objects[i].obj[j].GetComponent<Attack>().damageAmount = attack * weapons[i].weapon_attack;
                         weapon_objects[i].obj[j].SetActive(true);
 						float radius = 1.0f; // 回転半径
-						float speed = 2.0f; // 回転速度
+						float speed = 2.0f * weapons[i].weapon_attack_speed; // 回転速度
 						float angle = nowtime * speed + j*(2*(3.141592653589f))/(weapon_levels[i]); // 現在の角度
 						Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
 						weapon_objects[i].obj[j].transform.position = parent.position + offset;
@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
                 }break;
                 case 2:
                     //時間が経過していたら実行
-                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
+                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i]/weapons[i].weapon_attack_freq)
                     {
                         return;
                     }
@@ -221,10 +221,11 @@ public class Player : MonoBehaviour
 
                     //右方向に加速度を与える
                     newbullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                    //右方向以外の動かし方をしたい場合はPrefabにスクリプトを当ててvelocityをいじってください
                     break;
                 case 3:
                     //近距離の敵に自動で照準
-                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i])
+                    if(nowtime - weapon_lastAttackTimes[i] < weapon_cooltimes[i]/weapons[i].weapon_attack_freq)
                     {
                         return;
                     }
@@ -234,7 +235,7 @@ public class Player : MonoBehaviour
 
                     //右方向に加速度を与える
                     Collider2D[] hitColliders2 = Physics2D.OverlapCircleAll(parent.position, 2f);
-                    newbullet2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f, 0f);
+                    newbullet2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(5f * weapons[i].weapon_attack_speed, 0f);
                     foreach (var hitCollider in hitColliders2)
                     {
 
