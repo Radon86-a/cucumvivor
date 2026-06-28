@@ -113,6 +113,14 @@ public class SelectUpgrade : MonoBehaviour
             //アイテムとして使用する場合の処理
             switch (selectedWeapon.weapon_id)
             {
+                case 5:
+                    //完全な球体のキュウリ
+                    player.HP += (long)(player.max_HP * 0.2f);
+                    player.attack += 5;
+                    player.speed += 1;
+                    player.attack_freq *= 1.2f;
+
+                    break;
                 case 13:
                     //きゅうりの冠
                     player.max_HP += 100;
@@ -127,7 +135,7 @@ public class SelectUpgrade : MonoBehaviour
                     break;
                 case 16:
                     //緩急り
-                    player.attack_freq *= 0.8f;
+                    player.attack_freq *= 1.5f;
                     break;
                 case 17:
                     //きゅうり缶
