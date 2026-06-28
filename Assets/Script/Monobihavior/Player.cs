@@ -109,11 +109,9 @@ public class Player : MonoBehaviour
 
         rb.MovePosition(rb.position + moveVector2 * speed * Time.deltaTime);
         //画面外に行ったら戻す
-
-
     }
 
-
+    /*
     void playerAttack()
     {
         Transform parent = this.transform;
@@ -268,6 +266,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+    */
 
 
 	//EXPを拾う

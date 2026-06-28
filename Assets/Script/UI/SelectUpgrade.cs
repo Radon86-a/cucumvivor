@@ -32,8 +32,6 @@ public class SelectUpgrade : MonoBehaviour
             selections[i] = weaponList[randomIndex];
             weaponList.RemoveAt(randomIndex);
         }
-
-
     }
     public void ShowSelectUI(Weapons[] selections)
     {
@@ -64,6 +62,7 @@ public class SelectUpgrade : MonoBehaviour
         selectUI.SetActive(false);
         Time.timeScale = 1f;
     }
+    
     /*
     id+12
 | id  | 名前             | 対象 | 上昇幅 | 説明                | 実装 |
@@ -82,6 +81,7 @@ public class SelectUpgrade : MonoBehaviour
 | 11  | 柑橘きゅうり     | 0,2  | ×1.2   | 栄養満点！          | 未   |
 |     |                  |      |        |                     |      |
     */
+    /*
     public void SendSelectedWeaponData(Weapons selectedWeapon)
     {
         if (selectedWeapon.use_as_item)
@@ -175,5 +175,6 @@ public class SelectUpgrade : MonoBehaviour
         }
         weaponUI.SetAll();
     }
+    */
 
 }
